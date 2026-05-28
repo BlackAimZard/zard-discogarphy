@@ -9,27 +9,26 @@
 <style>html,body,h2,b,ul,li,tbody,header,nav{background:transparent}blockquote:before,blockquote:after,q:before,q:after{content:none}a{background:transparent;text-decoration:none}body{background-color:#FFFFFF}a:hover{color:#ff0000;text-decoration:none}h2{font-family:"メイリオ",Meiryo,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka,"ＭＳ Ｐゴシック","MS PGothic",sans-serif}h3:before{content:"✔ ";color:#cf0c0c}h4:before{content:"«"}h4:after{content:"»"}dt:before{content:"■"}.list li:before{content:"★ ";color:#ffc720}nav li a:hover{color:#fff;text-decoration:underline}.totop img:hover{background:#333}</style>
 <style>html,body,h2,b,ul,li,tbody,header,nav{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;font-weight:normal}header,nav{display:block}ul{list-style:none}blockquote:before,blockquote:after,q:before,q:after{content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline}body{font-size:16px;font-family:"メイリオ",Meiryo,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;line-height:1.6}header{width:100%;margin:0 auto}a:hover{color:#ff0000;text-decoration:none}h2{margin-bottom:0.5em;font-size:32px;color:#000}h4:before{content:"«"}h4:after{content:"»"}li{margin-left:2em}dt:before{content:"■"}td{vertical-align:middle}.list li:before{content:"★ ";color:#ffc720}header{margin-bottom:50px}nav{width:100%;position:fixed;top:0;left:0;padding:5px 0;opacity:0.8;background:#000;z-index:10}nav ul{position:relative;float:left;left:50%;margin:0}nav li{position:relative;left:-50%;float:left;list-style:none;margin:0;padding:0 20px}nav li a{color:#dfdfdf;text-decoration:none}nav li a:hover{color:#fff;text-decoration:underline}.totop img:hover{background:#333}@media screen and (max-width:799px){body{box-sizing:border-box;width:100%;padding:0 10px}header{width:100%}}
 @media screen and (max-width: 1024px) and (orientation: landscape) {
-  /* Trả lại cách tính độ rộng cột tự nhiên của trình duyệt */
   table {
     table-layout: auto !important;
     width: 100% !important;
   }
   
-  /* Reset chiều cao hàng để không bị phình */
+  /* Ép các hàng tr có cấu trúc liên kết rowspan phải chia đều 25% chiều cao */
   table tr {
-    height: auto !important;
+    height: 25% !important;
   }
 
-  /* Khống chế khu vực chứa ảnh dọc để nó không đẩy chiều cao của ô */
+  /* Khống chế khu vực chứa ảnh dọc vừa vặn theo chiều cao ô */
   table td[rowspan] a {
     display: block !important;
-    max-height: 90px !important; /* Giới hạn chiều cao vừa vặn cho chế độ ngang */
+    max-height: 100px !important; 
     overflow: hidden;
   }
 
   /* Định hình lại ảnh dọc bên trong */
   table td[rowspan] img {
-    height: 90px !important;
+    height: 100px !important;
     width: auto !important;
     object-fit: contain !important;
   }

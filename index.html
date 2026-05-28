@@ -41,7 +41,7 @@
  
 <tr>
 <td width=6.5% align=center bgcolor=#ffffff rowspan=4 valign=middle>01</td>
-<td width=35.5% align=left bgcolor=#ffffff rowspan=4 valign=middle>Good-bye My Loneliness77<br><br><a href="https://wezard.net/wp-content/uploads/2020/01/BGDH-1010.jpg" target="_blank"><img src="https://wezard.net/wp-content/uploads/2020/01/BGDH-1010.jpg" width="80"></a></td>
+<td width=35.5% align=left bgcolor=#ffffff rowspan=4 valign=middle>Good-bye My Loneliness88<br><br><a href="https://wezard.net/wp-content/uploads/2020/01/BGDH-1010.jpg" target="_blank"><img src="https://wezard.net/wp-content/uploads/2020/01/BGDH-1010.jpg" width="80"></a></td>
 <td align=left bgcolor=#ffffff>PO・b.gram – PODH-1029</td>
 <td align=left bgcolor=#ffffff>1991.02.10</td>
 <td align=left bgcolor=#ffffff rowspan=4 valign=middle><a href="https://ja.wikipedia.org/wiki/Good-bye_My_Loneliness" target="_blank">Wiki</a><br><a href="https://zard-lab.net/pv/single/sg01" target="_blank">PV/CM</a></td>
@@ -860,6 +860,14 @@
 <br>
 </center>
 
+<style>
+/* THÊM ĐOẠN NÀY: Khóa chặt tính năng tự động bơm chữ/zoom bậy bạ của Chrome Mobile */
+body {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+</style>
+
 <script>
 // Layout adjustments: Fix sticky navigation padding and equalize table row heights
 function setNavHeight() {
@@ -916,27 +924,34 @@ function handleLayout() {
   equalizeTableRows();
 }
 
-// Lần đầu tiên tải trang (cả PC và Mobile đều chạy để dựng layout ban đầu)
+// Lần đầu tiên tải trang (Dựng layout chuẩn ban đầu)
 window.addEventListener("load", handleLayout);
 
-// Cứu tinh cho PC: Tính lại Nav khi co giãn hoặc thu nhỏ tab
-window.addEventListener("resize", () => {
-  if (window.innerWidth > 799) {
-    setNavHeight();
-  }
-});
-
+let lastWidth = window.innerWidth;
 let resizeTimer;
 
-// TRỊ DỨT ĐIỂM CHROME AUTO-ZOOM & SAFARI TUỘT HÀNG
-window.addEventListener("orientationchange", () => {
-  clearTimeout(resizeTimer);
+// QUAY LẠI DÙNG RESIZE NHƯNG CÓ BỘ LỌC CAO CẤP
+window.addEventListener("resize", () => {
+  // Chiêu 1: Nếu người dùng đang dùng tay thu phóng (Zoom), ĐỨNG IM không chạy JS để chống chớp chữ
+  if (window.visualViewport && window.visualViewport.scale !== 1) return;
 
-  // TUYỆT CHIÊU: Đợi hiệu ứng xoay màn hình kết thúc hoàn toàn (200ms) 
-  // rồi mới XÓA và ĐO LẠI đồng thời, chặn đứng thuật toán kích hoạt Auto-Zoom của Chrome.
+  // Chiêu 2: Nếu chiều ngang không đổi (chỉ cuộn lên xuống trên mobile), BỎ QUA
+  if (window.innerWidth === lastWidth) return;
+  lastWidth = window.innerWidth;
+
+  // Sửa lỗi đè chữ trên PC ngay lập tức khi thu nhỏ tab
+  setNavHeight();
+
+  clearTimeout(resizeTimer);
   resizeTimer = setTimeout(() => {
+    // Chiêu 3: Reset chiều cao về mặc định để chữ nghĩa co giãn tự nhiên theo sườn mới trước
     document.querySelectorAll("table tr").forEach(r => r.style.height = "");
-    handleLayout();
-  }, 200); 
+
+    // Chiêu 4 (CỰC KỲ QUAN TRỌNG): Đợi đúng 1 khung hình vẽ của trình duyệt để mọi thứ ổn định,
+    // rồi mới nhảy vào đo đạc thực tế. Trị dứt điểm tuột hàng của iOS & khóa họng auto zoom của Chrome!
+    requestAnimationFrame(() => {
+      equalizeTableRows();
+    });
+  }, 150);
 });
 </script>

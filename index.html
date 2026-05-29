@@ -8,24 +8,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style type="text/css">
-/* 1. Base Reset */
+/* Github fonts import */
+@font-face {font-family: 'MyMSGothic';src: url('fonts/MS-Gothic.woff2') format('woff2');}
+@font-face {font-family: 'MyMSPGothic';src: url('fonts/MS-PGothic.woff2') format('woff2');}
+@font-face {font-family: 'MyMSUIGothic';src: url('fonts/MS-UIGothic.woff2') format('woff2');}
+
+/* Base Reset */
 html,body,h2,b,ul,li,tbody,#nav { margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; font-weight:normal; background:transparent; }
 ul { list-style:none; } blockquote:before,blockquote:after,q:before,q:after { content:none; }
 
 /* TD Fix */
 td { vertical-align:middle; font-size:10pt; line-height:13pt; }
 
-/* 2. Global Typography */
+/* Global Typography */
 body { background-color:#FFFFFF; font-size:16px; line-height:1.6; font-family:"メイリオ",Meiryo,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka,"ＭＳ Ｐゴシック","MS PGothic",sans-serif; }
 h2 { font-size:32px; color:#000; margin-bottom:0.5em; }
 
-/* 3. Elements & Icons */
+/* Elements & Icons */
 a { background:transparent; text-decoration:none; margin:0; padding:0; font-size:100%; vertical-align:baseline; }
 a:hover { color:#ff0000; text-decoration:none; } li { margin-left:2em; }
 h3:before { content:"✔ "; color:#cf0c0c; } h4:before { content:"«"; } h4:after { content:"»"; } dt:before { content:"■"; }
 .list li:before { content:"★ "; color:#ffc720; } .totop img:hover { background:#333; }
 
-/* 4. Layout & Navigation (Dùng id="nav" chuẩn HTML4) */
+/* Layout & Navigation (Dùng id="nav" chuẩn HTML4) */
 #nav { width:100%; position:fixed; top:0; left:0; padding:5px 0; opacity:0.8; background:#000; z-index:10; }
 #nav ul { position:relative; float:left; left:50%; margin:0; }
 #nav li { position:relative; left:-50%; float:left; list-style:none; margin:0; padding:0 20px; }

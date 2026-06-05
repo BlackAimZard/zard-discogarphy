@@ -24,17 +24,16 @@ a:hover { color: #ff0000; text-decoration: underline; }
 /* Mobile Responsive */
 @media screen and (max-width: 799px) { body { box-sizing: border-box; width: 100%; padding: 0 10px; } }
 </style>
-</style>
 </head>
 
 <body>
-<!-- Center fix -->
+<!-- Content Center fix -->
 <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
 
 <tbody>
 <tr>
  <td align="center" valign="middle">
- <!-- Info box -->
+<!-- Info box -->
 <table width="260" cellpadding="10" cellspacing="0" style="margin: 0 auto; border: 1px solid #a2a9b1; text-align: left; background-color: #f8f9fa;">
 <tbody>
 <tr>
@@ -76,7 +75,52 @@ a:hover { color: #ff0000; text-decoration: underline; }
 </tr>
 </tbody>
 </table>
- </td>
+</div>
+
+
+<!--WEZARD Youtube auto update - START -->
+<div style="max-width: 460px; margin: 30px auto 5px; text-align: left; font-size: 16px; display: flex; align-items: center;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_play_button_icon_%282013%E2%80%932017%29.svg" width="20" style="margin-right: 5px;">
+  <b>LATEST ON WEZARD</b>
+</div>
+
+<div style="max-width: 460px; box-sizing: border-box; margin: 0 auto; text-align: left; font-size: 14px; padding: 10px; background-color: #f8f9fa;">
+  <ul id="yt-list" style="margin: 0; padding-left: 0px; list-style-type: square; line-height: 1.6;">
+    <li>Loading data...</li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+  const ytFeedUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=UC9OXNkUKmf3bUx8N9l8jM2w';
+  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(ytFeedUrl)}`;
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      let html = '';
+      for(let i = 0; i < 3; i++) {
+        let video = data.items[i];
+        
+        let dateObj = new Date(video.pubDate.replace(' ', 'T'));
+        let yyyy = dateObj.getFullYear();
+        let mm = String(dateObj.getMonth() + 1).padStart(2, '0');
+        let dd = String(dateObj.getDate()).padStart(2, '0');
+        let dateStr = `${yyyy}.${mm}.${dd}`;
+
+        html += `<li style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${dateStr} - ${video.title}">
+                   <span style="color: #000000; font-size: 14px;">${dateStr}</span> - 
+                   <a href="${video.link}" target="_blank">${video.title}</a>
+                 </li>`;
+      }
+      document.getElementById('yt-list').innerHTML = html;
+    })
+    .catch(error => {
+      document.getElementById('yt-list').innerHTML = '<li>Error loading feed.</li>';
+    });
+</script>
+<!--WEZARD Youtube auto update -END -->
+
+
+</td>
 </tr>
 </tbody>
 </table>

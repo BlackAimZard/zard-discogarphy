@@ -15,15 +15,19 @@ a { background: transparent; text-decoration: none; color: #003399; }
 a:hover { color: #ff0000; text-decoration: underline; }
  
 .link-mobile { display: none; }
-/* Mobile Responsive */
-@media screen and (max-width: 799px) { body { box-sizing: border-box; width: 100%; padding: 0 10px; } 
-.link-pc { display: none; }
-.link-mobile { display: none; }
+.link-pc { display: block; }
 
+/* Nếu là màn hình cảm ứng (bất kể ngang hay dọc) */
 @media (pointer: coarse) { 
   .link-pc { display: none; }
   .link-mobile { display: block; }
 }
+
+/* Ép lề cho màn hình nhỏ (bất kể cảm ứng hay chuột) */
+@media screen and (max-width: 799px) { 
+  body { box-sizing: border-box; width: 100%; padding: 0 10px; } 
+}
+</style>
 </style>
 </head>
 
@@ -55,8 +59,8 @@ a:hover { color: #ff0000; text-decoration: underline; }
 <tr>
      <td align="left">
       <div class="link-pc">
-       <a href="f_album.html">[Album]</a> &nbsp;&nbsp;
-       <a href="f_single.html">[Single]</a> &nbsp;&nbsp;
+       <a href="f_album.html">[Albums]</a> &nbsp;&nbsp;
+       <a href="f_single.html">[Singles]</a> &nbsp;&nbsp;
        <a href="f_dvd.html">[DVD]</a> &nbsp;&nbsp;
        <a href="f_bluray.html">[Blu-ray]</a> &nbsp;&nbsp;
        <a href="f_book.html">[Book]</a> &nbsp;&nbsp;
@@ -64,8 +68,8 @@ a:hover { color: #ff0000; text-decoration: underline; }
       </div>
 
       <div class="link-mobile">
-       <a href="album.html">[Album]</a> &nbsp;&nbsp;
-       <a href="single.html">[Single]</a> &nbsp;&nbsp;
+       <a href="album.html">[Albums]</a> &nbsp;&nbsp;
+       <a href="single.html">[Singles]</a> &nbsp;&nbsp;
        <a href="dvd.html">[DVD]</a> &nbsp;&nbsp;
        <a href="bluray.html">[Blu-ray]</a> &nbsp;&nbsp;
        <a href="book.html">[Book]</a> &nbsp;&nbsp;

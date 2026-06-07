@@ -8,7 +8,7 @@
 html, body { height: 100%; margin: 0; padding: 0; }
 
 /* Global Typography */
-body { background-color: #f5f7f9; font-family: "Times New Roman", "Noto Serif JP", Serif; color: #000000; font-size: 16px; }
+body { background-color: #f5f7f9; font-family: "Times New Roman", "Noto Serif JP", Serif; color: #000000; font-size: 16px; min-width: 650px; overflow-x: auto;}
 
 /* TD & IMG Fix */
 td { vertical-align: middle; font-size: 14px; }
@@ -23,11 +23,6 @@ a:hover { color: #ff0000; text-decoration: underline; }
 .link-mobile { display: none; }
 @media (pointer: coarse) { .link-pc { display: none; }.link-mobile { display: block; } }
 
-/* Mobile Responsive & Rank Badge Setting */
-@media screen and (max-width: 799px) { 
-  .resp-badge { display: block !important; width: 100% !important; padding: 0 !important; margin-bottom: 15px !important; text-align: left !important; }
-  .resp-badge table { margin: 0 auto 0 0 !important; } 
-}
 </style>
 </head>
 

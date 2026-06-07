@@ -8,7 +8,7 @@
 html, body { height: 100%; margin: 0; padding: 0; }
 
 /* Global Typography */
-body { background-color: #f5f7f9; font-family: "Times New Roman", "Meiryo", "MS PGothic", "Hiragino Sans", "Osaka", sans-serif; color: #000000; font-size: 16px; }
+body { background-color: #f5f7f9; font-family: "Times New Roman", Serif; color: #000000; font-size: 16px; }
 
 /* TD & IMG Fix */
 td { vertical-align: middle; font-size: 14px; }
@@ -18,272 +18,310 @@ img { border: 0; display: block; }
 a { background: transparent; text-decoration: none; color: #003399; }
 a:hover { color: #ff0000; text-decoration: underline; }
 
-
 /* PC - Mobile Link Fix */
 .link-pc { display: block; }
 .link-mobile { display: none; }
-@media (pointer: coarse) { 
- .link-pc { display: none; }
- .link-mobile { display: block; }
-}
+@media (pointer: coarse) { .link-pc { display: none; }.link-mobile { display: block; } }
 
-/* Mobile Responsive */
- @media screen and (max-width: 799px) { 
-  body { box-sizing: border-box; width: 100%; padding: 0 10px; }
-  /* Ép 3 cột thành khối dọc và VẢ LỆCH SANG TRÁI */
-  .resp-badge { display: block !important; width: 100% !important; padding: 0 !important; margin-bottom: 15px !important; text-align: left !important; }
-  /* Khóa chết cái bảng bên trong không cho lề phải lề giữa lôm côm nữa */
-  .resp-badge table { margin: 0 auto 0 0 !important; }
- }
+/* Mobile Responsive & Rank Badge Setting */
+@media screen and (max-width: 799px) { body { box-sizing: border-box; width: 100%; padding: 0 10px; }
+.resp-badge { display: block !important; width: 100% !important; padding: 0 !important; margin-bottom: 15px !important; text-align: left !important; }
+.resp-badge table { margin: 0 auto 0 0 !important; } }
 </style>
 </head>
 
 <body>
-<!--Content Center fix-->
+
+<!-- Content Center fix -->
 <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
 <tbody>
- <tr>
- <td align="center" style="padding: 100px 0;">
+<tr>
+<td align="center" style="padding: 100px 0;">
 
-<!-- HERO SECTION - START -->
+
+<!--Info Title - START-->
 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="resp-hero" style="max-width: 650px; margin: 40px auto 20px;">
- <tbody>
-  <tr>
-   
-   <!-- Cột Trái: ZARD -->
-   <td align="right" valign="middle" width="50%" style="padding-right: 10px; color: #181b24; font-family: 'Times New Roman', serif;">
-    <span style="font-size: 32px; line-height: 1.1;"><b>ZARD</b><br><b>ザード</b></span><br>
-    <span style="font-size: 16px; line-height: 1.1;">was a<br>Japanese Pop Rock group</span>
-   </td>
-   
-   <!-- Cột Giữa: Khung Ảnh 3D -->
-   <td align="center" valign="middle" width="176">
-    <table cellspacing="1" bgcolor="#ebebeb" width="176" style="border-style: solid; border-width: 2px; border-color: #808080 #2c2c2c #2c2c2c #808080; margin: 0 auto;">
-     <tbody>
-      <tr>
-       <!-- padding 4px tạo khoảng cách từ lề đến ảnh -->
-       <td align="center" valign="middle" style="padding: 4px; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c; background-color: #ebebeb;">
-        <img src="profile_cover.jpg" alt="Izumi Sakai" width="100%" style="display: block;">
-       </td>
-      </tr>
-     </tbody>
-    </table>
-   </td>
-   
-   <!-- Cột Phải: IZUMI SAKAI -->
-   <td align="left" valign="middle" width="50%" style="padding-left: 10px; color: #181b24; font-family: 'Times New Roman', serif;">
-    <span style="font-size: 16px; line-height: 1.1;">with<br>lead vocalist</span><br>
-    <span style="font-size: 32px; line-height: 1.1;"><b>IZUMI SAKAI</b><br><b>坂井泉水</b></span>
-   </td>
-   
-  </tr>
- </tbody>
+<tbody>
+<tr>
+<td align="right" width="50%" style="padding-right: 10px; color: #181b24;">
+<span style="font-size: 32px; line-height: 1.1;"><b>ZARD</b><br><b>ザード</b></span><br>
+<span style="font-size: 16px; line-height: 1.2;">was a Japanese Pop Rock group<br>Est. 1991</span></td>
+<td align="center" width="176">
+<table cellspacing="1" bgcolor="#ebebeb" width="176" style="border-style: solid; border-width: 2px; border-color: #808080 #2c2c2c #2c2c2c #808080; margin: 0 auto;">
+<tbody>
+<tr><td align="center" style="padding: 4px; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c; background-color: #ebebeb;">
+<img src="profile_cover.jpg" alt="Izumi Sakai" width="100%"></td></tr>
+</tbody>
 </table>
-<!-- HERO SECTION - END -->
+</td>
+<td align="left" width="50%" style="padding-left: 10px; color: #181b24;">
+<span style="font-size: 16px; line-height: 1.1;">with<br>lead vocalist</span><br>
+<span style="font-size: 32px; line-height: 1.1;"><b>IZUMI SAKAI</b><br><b>坂井泉水</b></span></td>
+</tr>
+</tbody>
+</table>
+<!--Info Title - END-->
 
-<!--Discography-->
+
+<!--DISCOGRAPHY ARCHIVE - START-->
 <table width="100%" cellpadding="0" cellspacing="1" style="max-width: 620px; margin: 30px auto 0; border-top: 2px solid #808080; border-bottom: 2px solid #2c2c2c;">
+<tbody>
+<tr>
+<td align="center" style="border-top: 2px solid #2c2c2c; border-bottom: 2px solid #808080; padding: 0;">
+ 
+<!--DISCOGRAPHY Table Design -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td width="9"></td> 
+<td align="center" bgcolor="#ebebeb" style="padding: 20px; font-size: 16px;">
+ 
+<!--Link Data Archive-->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr><td align="center" style="padding-bottom: 12px; letter-spacing: 1px; font-size: 16px;">
+<b>DISCOGRAPHY ARCHIVE<br><span style="font-size: 14px;">ディスコグラフィ・アーカイブ</span></b></td></tr>
+<tr>
+<td align="center">
+<span class="link-pc">
+<a href="f_album.html"><b>[Album]</b></a> 
+<a href="f_single.html"><b>[Single]</b></a> 
+<a href="f_dvd.html"><b>[DVD]</b></a> 
+<a href="f_bluray.html"><b>[Blu-ray]</b></a> 
+<a href="f_book.html"><b>[Book]</b></a> 
+<a href="f_other.html"><b>[Other]</b></a>
+</span>
+ 
+<span class="link-mobile">
+<a href="album.html"><b>[Album]</b></a> 
+<a href="single.html"><b>[Single]</b></a> 
+<a href="dvd.html"><b>[DVD]</b></a> 
+<a href="bluray.html"><b>[Blu-ray]</b></a> 
+<a href="book.html"><b>[Book]</b></a> 
+<a href="other.html"><b>[Other]</b></a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width="9"></td> 
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- DISCOGRAPHY ARCHIVE - END -->
+
+
+<!-- TOP 3 CD SINGLE - START -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 40px auto 0;">
+<tbody>
+ 
+<!--TITLE AND LINE-->
+<tr>
+<td>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr><td style="border-left: 5px solid #181b24; padding-left: 10px; padding-top: 4px; padding-bottom: 4px;">
+<span style="font-size: 16px;"><b>TOP 3 CD SINGLE</b></span></td></tr>
+</tbody>
+</table>
+<hr style="margin-top: 5px; margin-bottom: 15px;">
+</td>
+</tr>
+
+<!--BADGES CONTAINER-->
+<tr>
+<td>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+ 
+<!--RANK 1 SINGLE-->
+<td align="left" width="33%" class="resp-badge" style="vertical-align: top;">
+<table cellspacing="1" bgcolor="#ebebeb" width="185" style="border-style: solid; border-width: 2px; border-color: #808080 #2c2c2c #2c2c2c #808080;">
+<tbody>
+<tr>
+<td width="20" align="center" style="font-size: 16px; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c;"><b>1</b></td>
+<td style="padding: 4px; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c; vertical-align: top;">
+<!--NESTED TABLE-->
+<table width="100%" height="85" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td width="45" rowspan="2" style="padding-right: 8px; vertical-align: top;"><img src="https://wezard.net/wp-content/uploads/2020/01/BGDH-1031.jpg" width="45" alt="img"></td>
+<td style="line-height: 1.2; font-size: 12px; vertical-align: top;"><b>Makenaide</b><br>負けないで</td>
+</tr>
+<tr><td style="font-size: 12px; vertical-align: bottom;"><b>~ 1,64 M copies</b></td></tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+ 
+<!--RANK 2 SINGLE-->
+<td align="center" width="34%" class="resp-badge" style="vertical-align: top;">
+<table cellspacing="1" bgcolor="#ebebeb" width="185" style="border-style: solid; border-width: 2px; border-color: #808080 #2c2c2c #2c2c2c #808080;">
+<tbody>
+<tr>
+<td width="20" align="center" style="font-size: 16px; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c;"><b>2</b></td>
+<td style="padding: 4px; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c; vertical-align: top;">
+<!--NESTED TABLE-->
+<table width="100%" height="85" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td width="45" rowspan="2" style="padding-right: 8px; vertical-align: top;"><img src="https://wezard.net/wp-content/uploads/2020/01/BGDH-1005.jpg" width="45" alt="img"></td>
+<td style="line-height: 1.2; font-size: 12px; vertical-align: top;"><b>Yureru Omoi</b><br>揺れる想い</td>
+</tr>
+<tr><td style="font-size: 12px; vertical-align: bottom;"><b>~ 1,39 M copies</b></td></tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+ 
+<!--RANK 3 SINGLE-->
+<td align="right" width="33%" class="resp-badge" style="vertical-align: top;">
+<table cellspacing="1" bgcolor="#ebebeb" width="185" style="border-style: solid; border-width: 2px; border-color: #808080 #2c2c2c #2c2c2c #808080;">
+<tbody>
+<tr>
+<td width="20" align="center" style="font-size: 16px; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c;"><b>3</b></td>
+<td style="padding: 4px; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c; vertical-align: top;">
+<!--NESTED TABLE-->
+<table width="100%" height="85" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td width="45" rowspan="2" style="padding-right: 8px; vertical-align: top;"><img src="https://wezard.net/wp-content/uploads/2020/01/JBDJ-1011.jpg" width="45" alt="img"></td>
+<td style="line-height: 1.2; font-size: 12px; vertical-align: top;"><b>My Friend</b><br>マイ フレンド</td>
+</tr>
+<tr><td style="font-size: 12px; vertical-align: bottom;"><b>~ 1,00 M copies</b></td></tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+ 
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--TOP 3 CD SINGLE - END-->
+
+
+<!--TOP 3 CD ALBUM - START-->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 40px auto 0;">
  <tbody>
-  <tr>
-   <!-- Thẻ td giữ nhiệm vụ làm viền 3D lớp trong, bỏ màu nền và xóa khoảng đệm -->
-   <td align="center" style="border-top: 2px solid #2c2c2c; border-bottom: 2px solid #808080; padding: 0;">
-    
-    <!-- Khối div này mới chứa màu nền và bị bóp lề 2 bên (margin: 0 10px) -->
-    <div class="disco-archive-box" style="background-color: #ebebeb; margin: 0 9px; padding: 20px; font-size: 16px; font-family: 'Times New Roman', serif;">
-     
-     <!-- Tiêu đề màu trắng -->
-     <div style="margin-bottom: 12px; letter-spacing: 1px;">
-      <b>DISCOGRAPHY ARCHIVE</b>
-     </div>
-     
-     <!-- Khu vực Link PC -->
-     <div class="link-pc">
-      <a href="f_album.html"><b>[Album]</b></a> 
-      <a href="f_single.html"><b>[Single]</b></a> 
-      <a href="f_dvd.html"><b>[DVD]</b></a> 
-      <a href="f_bluray.html"><b>[Blu-ray]</b></a> 
-      <a href="f_book.html"><b>[Book]</b></a> 
-      <a href="f_other.html"><b>[Other]</b></a>
-     </div>
-     
-     <!-- Khu vực Link Mobile -->
-     <div class="link-mobile">
-      <a href="album.html"><b>[Album]</b></a> 
-      <a href="single.html"><b>[Single]</b></a> 
-      <a href="dvd.html"><b>[DVD]</b></a> 
-      <a href="bluray.html"><b>[Blu-ray]</b></a> 
-      <a href="book.html"><b>[Book]</b></a> 
-      <a href="other.html"><b>[Other]</b></a>
-     </div>
-     
-    </div>
-    
-   </td>
-  </tr>
+ 
+<!--TITLE AND LINE-->
+<tr>
+<td>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr><td style="border-left: 5px solid #181b24; padding-left: 10px; padding-top: 4px; padding-bottom: 4px;">
+<span style="font-size: 16px;"><b>TOP 3 CD ALBUM</b></span></td></tr>
+</tbody>
+</table>
+<hr style="margin-top: 5px; margin-bottom: 15px;">
+</td>
+</tr>
+
+<!--BADGES CONTAINER-->
+<tr>
+<td>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+ 
+<!--RANK 1 ALBUM-->
+<td align="left" width="33%" class="resp-badge" style="vertical-align: top;">
+<table cellspacing="1" bgcolor="#ebebeb" width="185" style="border-style: solid; border-width: 2px; border-color: #808080 #2c2c2c #2c2c2c #808080;">
+<tbody>
+<tr>
+<td width="20" align="center" style="font-size: 16px; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c;"><b>1</b></td>
+<td style="padding: 4px; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c; vertical-align: top;">
+<!--NESTED TABLE-->
+<table width="100%" height="85" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td width="45" rowspan="2" style="padding-right: 8px; vertical-align: top;"><img src="https://wezard.net/wp-content/uploads/2020/01/JBCJ-1023.jpg" width="45" alt="img"></td>
+<td style="line-height: 1.2; font-size: 12px; vertical-align: top;"><b>ZARD BEST The Single Collection ~Kiseki~</b></td>
+</tr>
+<tr><td style="font-size: 12px; vertical-align: bottom;"><b>~ 3,03 M copies</b></td></tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+ 
+<!--RANK 2 ALBUM-->
+<td align="center" width="34%" class="resp-badge" style="vertical-align: top;">
+<table cellspacing="1" bgcolor="#ebebeb" width="185" style="border-style: solid; border-width: 2px; border-color: #808080 #2c2c2c #2c2c2c #808080;">
+<tbody>
+<tr>
+<td width="20" align="center" style="font-size: 16px; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c;"><b>2</b></td>
+<td style="padding: 4px; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c; vertical-align: top;">
+<!--NESTED TABLE-->
+<table width="100%" height="85" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td width="45" rowspan="2" style="padding-right: 8px; vertical-align: top;"><img src="https://wezard.net/wp-content/uploads/2020/01/BGCH-1001.jpg" width="45" alt="img"></td>
+<td style="line-height: 1.2; font-size: 12px; vertical-align: top;"><b>Yureru Omoi</b><br>揺れる想い</td>
+</tr>
+<tr><td style="font-size: 12px; vertical-align: bottom;"><b>~ 2,23 M copies</b></td></tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+ 
+<!--RANK 3 ALBUM-->
+<td align="right" width="33%" class="resp-badge" style="vertical-align: top;">
+<table cellspacing="1" bgcolor="#ebebeb" width="185" style="border-style: solid; border-width: 2px; border-color: #808080 #2c2c2c #2c2c2c #808080;">
+<tbody>
+<tr>
+<td width="20" align="center" style="font-size: 16px; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c;"><b>3</b></td>
+<td style="padding: 4px; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c; vertical-align: top;">
+<!--NESTED TABLE-->
+<table width="100%" height="85" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td width="45" rowspan="2" style="padding-right: 8px; vertical-align: top;"><img src="https://wezard.net/wp-content/uploads/2020/01/JBCJ-1013.jpg" width="45" alt="img"></td>
+<td style="line-height: 1.2; font-size: 12px; vertical-align: top;"><b>ZARD BLEND ~SUN&STONE~</b></td></tr>
+<tr>
+<td style="font-size: 12px; vertical-align: bottom;"><b>~ 2,00 M copies</b></td></tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+ 
+ </tr>
+ </tbody>
+ </table>
+ </td>
+ </tr>
  </tbody>
 </table>
-<!--Discography End-->
-
- <!-- 
- <div style="width: 100%; max-width: 620px; margin: 30px auto 0; background-color: #181b24; color: #3dc1ff; box-sizing: border-box;">
- <marquee behavior="scroll" direction="left" scrollamount="4" style="font-size: 16px; letter-spacing: 0.5px;">
- ZARD（ザード）was a Japanese pop rock group. Originally a group of five members, with lead vocalist Izumi Sakai（坂井泉水）as group leader. However, Izumi Sakai was the only member who stayed on in the group while others joined and left regularly.
- </marquee>
- </div>
--->
-
-<!--best selling - start-->
-<!-- TOP 3 CD SINGLE - START -->
-<div style="width: 100%; max-width: 600px; margin: 40px auto 0;">
- 
- <!-- Tiêu đề có vạch xanh dương -->
- <div style="border-left: 5px solid #181b24; padding-left: 10px; padding-top: 4px; padding-bottom: 4px; margin-bottom: 8px; text-align: left;">
-  <span style="font-size: 16px; font-weight: bold; font-family: 'Times New Roman', serif;">TOP 3 CD SINGLE</span>
- </div>
- <hr>
- 
- <!-- Vùng chứa 3 Badges -->
- <table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-top: 15px;">
-  <tbody>
-   <tr>
-    
-    <!-- Top 1 Badge -->
-    <td align="left" width="33%" valign="top" class="resp-badge">
-     <table cellspacing="1" bgcolor="#ebebeb" width="185" style="border-style: solid; border-width: 2px; border-color: #808080 #2c2c2c #2c2c2c #808080;">
-      <tbody>
-       <tr>
-        <td width="20" align="center" style="font-size: 14px; font-family: 'Times New Roman', serif; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c;"><b>1</b></td>
-        <td valign="top" style="padding: 4px; font-size: 12px; font-family: 'Times New Roman', serif; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c;">
-         <div style="height: 85px; position: relative;">
-          <img src="https://wezard.net/wp-content/uploads/2020/01/BGDH-1031.jpg" width="45" alt="img" align="left" style="margin-right: 8px;">
-          <div style="line-height: 1.2;"><b>Makenaide</b><br>負けないで</div>
-          <div style="position: absolute; bottom: 0; left: 53px; font-weight: bold;">~ 1,64 M copies</div>
-         </div>
-        </td>
-       </tr>
-      </tbody>
-     </table>
-    </td>
-    
-    <!-- Top 2 Badge -->
-    <td align="center" width="34%" valign="top" class="resp-badge">
-     <table cellspacing="1" bgcolor="#ebebeb" width="185" style="border-style: solid; border-width: 2px; border-color: #808080 #2c2c2c #2c2c2c #808080;">
-      <tbody>
-       <tr>
-        <td width="20" align="center" style="font-size: 14px; font-family: 'Times New Roman', serif; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c;"><b>2</b></td>
-        <td valign="top" style="padding: 4px; font-size: 12px; font-family: 'Times New Roman', serif; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c;">
-         <div style="height: 85px; position: relative;">
-          <img src="https://wezard.net/wp-content/uploads/2020/01/BGDH-1005.jpg" width="45" alt="img" align="left" style="margin-right: 8px;">
-          <div style="line-height: 1.2;"><b>Yureru Omoi</b><br>揺れる想い</div>
-          <div style="position: absolute; bottom: 0; left: 53px; font-weight: bold;">~ 1,39 M copies</div>
-         </div>
-        </td>
-       </tr>
-      </tbody>
-     </table>
-    </td>
-    
-    <!-- Top 3 Badge -->
-    <td align="right" width="33%" valign="top" class="resp-badge">
-     <table cellspacing="1" bgcolor="#ebebeb" width="185" style="border-style: solid; border-width: 2px; border-color: #808080 #2c2c2c #2c2c2c #808080;">
-      <tbody>
-       <tr>
-        <td width="20" align="center" style="font-size: 14px; font-family: 'Times New Roman', serif; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c;"><b>3</b></td>
-        <td valign="top" style="padding: 4px; font-size: 12px; font-family: 'Times New Roman', serif; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c;">
-         <div style="height: 85px; position: relative;">
-          <img src="https://wezard.net/wp-content/uploads/2020/01/JBDJ-1011.jpg" width="45" alt="img" align="left" style="margin-right: 8px;">
-          <div style="line-height: 1.2;"><b>My Friend</b><br>マイ フレンド</div>
-          <div style="position: absolute; bottom: 0; left: 53px; font-weight: bold;">~ 1,00 M copies</div>
-         </div>
-        </td>
-       </tr>
-      </tbody>
-     </table>
-    </td>
-    
-   </tr>
-  </tbody>
- </table>
- 
-</div>
-<!-- TOP 3 CD SINGLE - END -->
-
-<!-- TOP 3 CD ALBUM - START -->
-<div style="width: 100%; max-width: 600px; margin: 40px auto 0;">
- 
- <!-- Tiêu đề có vạch xanh dương -->
- <div style="border-left: 5px solid #181b24; padding-left: 10px; padding-top: 4px; padding-bottom: 4px; margin-bottom: 8px; text-align: left;">
-  <span style="font-size: 16px; font-weight: bold; font-family: 'Times New Roman', serif;">TOP 3 CD ALBUM</span>
- </div>
- <hr>
- 
- <!-- Vùng chứa 3 Badges -->
- <table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-top: 15px;">
-  <tbody>
-   <tr>
-    
-    <!-- Top 1 Badge -->
-    <td align="left" width="33%" valign="top" class="resp-badge">
-     <table cellspacing="1" bgcolor="#ebebeb" width="185" style="border-style: solid; border-width: 2px; border-color: #808080 #2c2c2c #2c2c2c #808080;">
-      <tbody>
-       <tr>
-        <td width="20" align="center" style="font-size: 14px; font-family: 'Times New Roman', serif; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c;"><b>1</b></td>
-        <td valign="top" style="padding: 4px; font-size: 12px; font-family: 'Times New Roman', serif; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c;">
-         <div style="height: 85px; position: relative;">
-          <img src="https://wezard.net/wp-content/uploads/2020/01/JBCJ-1023.jpg" width="45" alt="img" style="position: absolute; top: 0; left: 0;">
-          <div style="margin-left: 53px;"><b>ZARD BEST The Single Collection ~Kiseki~</b></div>
-          <div style="position: absolute; bottom: 0; left: 53px; font-weight: bold;">~ 3,03 M copies</div>
-         </div>
-        </td>
-       </tr>
-      </tbody>
-     </table>
-    </td>
-    
-    <!-- Top 2 Badge -->
-    <td align="center" width="34%" valign="top" class="resp-badge">
-     <table cellspacing="1" bgcolor="#ebebeb" width="185" style="border-style: solid; border-width: 2px; border-color: #808080 #2c2c2c #2c2c2c #808080;">
-      <tbody>
-       <tr>
-        <td width="20" align="center" style="font-size: 14px; font-family: 'Times New Roman', serif; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c;"><b>2</b></td>
-        <td valign="top" style="padding: 4px; font-size: 12px; font-family: 'Times New Roman', serif; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c;">
-         <div style="height: 85px; position: relative;">
-          <img src="https://wezard.net/wp-content/uploads/2020/01/BGCH-1001.jpg" width="45" alt="img" style="position: absolute; top: 0; left: 0;">
-          <div style="margin-left: 53px;"><b>Yureru Omoi</b><br>揺れる想い</div>
-          <div style="position: absolute; bottom: 0; left: 53px; font-weight: bold;">~ 2,23 M copies</div>
-         </div>
-        </td>
-       </tr>
-      </tbody>
-     </table>
-    </td>
-    
-    <!-- Top 3 Badge -->
-    <td align="right" width="33%" valign="top" class="resp-badge">
-     <table cellspacing="1" bgcolor="#ebebeb" width="185" style="border-style: solid; border-width: 2px; border-color: #808080 #2c2c2c #2c2c2c #808080;">
-      <tbody>
-       <tr>
-        <td width="20" align="center" style="font-size: 14px; font-family: 'Times New Roman', serif; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c;"><b>3</b></td>
-        <td valign="top" style="padding: 4px; font-size: 12px; font-family: 'Times New Roman', serif; border-style: solid; border-width: 2px; border-color: #2c2c2c #808080 #808080 #2c2c2c;">
-         <div style="height: 85px; position: relative;">
-          <img src="https://wezard.net/wp-content/uploads/2020/01/JBCJ-1013.jpg" width="45" alt="img" style="position: absolute; top: 0; left: 0;">
-          <div style="margin-left: 53px;"><b>ZARD BLEND ~SUN&STONE~</b></div>
-          <div style="position: absolute; bottom: 0; left: 53px; font-weight: bold;">~ 2,00 M copies</div>
-         </div>
-        </td>
-       </tr>
-      </tbody>
-     </table>
-    </td>
-    
-   </tr>
-  </tbody>
- </table>
-</div>
 <!-- TOP 3 CD ALBUM - END -->
-<!--best selling - End-->
 
-
+<!-- BEST SELLING - END -->
 
  </td>
  </tr>

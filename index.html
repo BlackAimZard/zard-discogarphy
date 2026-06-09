@@ -30,6 +30,26 @@ a:hover { color: #000000; background-color: #00AAAA; text-decoration: none; }
 .link-pc { display: block; }
 .link-mobile { display: none; }
 @media (pointer: coarse) { .link-pc { display: none; }.link-mobile { display: block; } }
+
+/* Thiết lập điểm tựa cho viền ảo */
+.archive-menu {
+    position: relative;
+}
+
+/* Vẽ khung viền đen ảo bọc bên ngoài */
+.archive-menu::after {
+    content: "";
+    position: absolute;
+    top: 32px; /* Điểm bắt đầu viền. Fen có thể tăng/giảm số này để căn lên xuống */
+    left: -3px; /* Ép viền ra ngoài cạnh trái 3px (chừa 2px viền xám + 1px viền đen) */
+    right: -3px; /* Ép ra cạnh phải */
+    bottom: -2px; /* Ép ra cạnh đáy (chừa 1px viền xám + 1px viền đen) */
+    
+    border-left: 1px solid #000000;
+    border-right: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    pointer-events: none; /* Khóa layer ảo này lại để không bị chặn click chuột vào link */
+}
 </style>
 </head>
 
@@ -69,7 +89,7 @@ A Japanese musical unit centered around <span style="color: #00AAAA;">Izumi Saka
 </table>
 
 <!-- Discography Archive Menu -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-top: 30px; background-color:#393939; border-width: 1px 2px; border-style: solid; border-color: #555555; box-shadow: -17px 17px 0px -16px #000000, 17px 17px 0px -16px #000000, 0px 1px 0px 0px #000000;">
+<table class="archive-menu" width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-top: 30px; background-color:#393939; border-width: 1px 2px; border-style: solid; border-color: #555555;">
   <tr>
     <td style="padding: 8px 15px; color: #808080; border-bottom: 1px solid #555555;">Discography Archive</td>
   </tr>

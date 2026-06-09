@@ -25,6 +25,8 @@ img { border: 0; display: block; }
 /* Elements & Icons */
 a { background: transparent; text-decoration: none; color: #aaaaaa; }
 a:hover { color: #000000; background-color: #00AAAA; text-decoration: none; }
+a.link-more { color: #666666; text-decoration: none; }
+a.link-more:hover { color: #000000; background-color: #d97700; text-decoration: none; }
 
 /* PC - Mobile Link Fix */
 .link-pc { display: block; }
@@ -39,11 +41,10 @@ a:hover { color: #000000; background-color: #00AAAA; text-decoration: none; }
 .black-border::after {
     content: "";
     position: absolute;
-    top: -1px; /* Chốt cứng vào mép trên của thẻ td (vừa chạm đường viền xám) */
-    left: -3px; /* Ép viền ra ngoài cạnh trái 3px (chừa 2px viền xám + 1px viền đen) */
-    right: -3px; /* Ép ra cạnh phải */
-    bottom: -2px; /* Ép ra cạnh đáy (chừa 1px viền đáy xám + 1px viền đen) */
-    
+    top: -1px;
+    left: -3px;
+    right: -3px;
+    bottom: -2px;
     border-left: 1px solid #000000;
     border-right: 1px solid #000000;
     border-bottom: 1px solid #000000;
@@ -54,41 +55,61 @@ a:hover { color: #000000; background-color: #00AAAA; text-decoration: none; }
 
 <body>
 
-<!-- Content Center fix -->
+<!-- Content Center wrapper -->
 <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
 <tbody>
 <tr>
 <td align="center" style="padding: 50px 0;">
 
-<!-- Main Table -->
-<table width="550" border="0" cellpadding="0" cellspacing="0" style="text-align: left;">
-<tbody>
-
-
-<tr>
-<td bgcolor="#292929" style="padding: 25px 30px;">
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<!-- SECTION 1: Cover, Info & More Box (Tách riêng, rộng 600px) -->
+<table width="600" border="0" cellpadding="0" cellspacing="0" style="text-align: left; margin-bottom: 30px;">
 <tr>
 <!-- Profile Picture -->
 <td width="120" valign="top">
-<table width="120" cellpadding="1" cellspacing="0" bgcolor="#000000" style="border-width: 1px 2px; border-style: solid; border-color: #808080;">
-<tr><td><table width="100%" cellpadding="0" cellspacing="0" style="border-width: 1px 2px; border-style: solid; border-color: #808080;">
+<table width="120" cellpadding="1" cellspacing="0" bgcolor="#000000" style="border-width: 1px 2px; border-style: solid; border-color: #666666;">
+<tr><td><table width="100%" cellpadding="0" cellspacing="0" style="border-width: 1px 2px; border-style: solid; border-color: #666666;">
 <tr><td style="padding: 0;">
 <img src="index-img.jpg" width="100%" onerror="this.onerror=null; this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';" style="display: block; border: solid #000000; border-width: 3px 5px; box-sizing: border-box;"></td></tr></table></td></tr>
 </table>
 </td>
 
-<!-- Group Info -->
-<td valign="top" style="padding-left: 20px; line-height: 1.2">
-<span style="color: #d97700;">ZARD <span class="jp">/ ザード</span></span><br><br>
-A Japanese musical unit centered around <span style="color: #00AAAA;">Izumi Sakai</span> <span class="jp" style="color: #00AAAA;">/ 坂井泉水</span>. Even after Izumi Sakai's passing, her works live on as timeless standards.
+<!--Info-->
+<td valign="top" style="padding: 0 20px;">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td style="color: #D0C0B3; line-height: 1; padding-bottom: 20px;">ZARD <span class="jp">/ ザード</span></td></tr>
+<tr><td style="line-height: 1.2;">A Japanese musical unit centered around <span style="color: #FFFFFF;">Izumi Sakai</span> <span class="jp" style="color: #FFFFFF;">/ 坂井泉水</span>. Even after Izumi Sakai's passing, her works live on as timeless standards.</td></tr>
+</table>
 </td>
-</tr>
+
+<!--More Box & Dithering-->
+<!--font-size: 0; remove spacing-->
+<td width="105" valign="top" style="background-color: #000000; background-image: conic-gradient(#333333 90deg, transparent 90deg 180deg, #333333 180deg 270deg, transparent 270deg); background-size: 2px 2px; background-repeat: repeat; font-size: 0;">
+
+<table width="105" border="0" cellpadding="0" cellspacing="0" style="position: relative; background-color: #000000;">
+<tr><td style="font-size: 16px;">
+<table width="100%" cellpadding="1" cellspacing="0" bgcolor="#000000" style="border-width: 1px 2px; border-style: solid; border-color: #666666;">
+<tr><td>
+<table width="100%" cellpadding="0" cellspacing="0" style="border-width: 1px 2px; border-style: solid; border-color: #666666;">
+<tr><td align="center" style="line-height: 1.6; padding: 6px 0 4px 0;"><a href="#" class="link-more">Official</a><br><a href="#" class="link-more">Wikipedia</a></td></tr>
+</table></td></tr>
 </table>
 
+<span style="position: absolute; top: -8px; left: 0; width: 100%; text-align: center; line-height: 16px; height: 16px; display: block;">
+<span style="background-color: #000000; padding: 0 5px; color: #aaaaaa;">More</span></span>
+</td></tr>
+</table>
+</td>
+
+
+<!-- SECTION 2: Main Table (Menu & Rankings, rộng 550px) -->
+<table width="550" border="0" cellpadding="0" cellspacing="0" style="text-align: left;">
+<tbody>
+
+<tr>
+<td bgcolor="#292929" style="padding: 25px 30px;">
+
 <!-- Discography Archive Menu -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-top: 30px; background-color:#393939; border-width: 1px 2px; border-style: solid; border-color: #555555;">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color:#393939; border-width: 1px 2px; border-style: solid; border-color: #555555;">
 <tr><td style="padding: 8px 15px; color: #808080; border-bottom: 1px solid #555555;">Discography Archive</td></tr><tr>
 <td class="black-border" bgcolor="#000000" align="center" style="padding: 15px;">
 <span class="link-pc">
@@ -201,7 +222,6 @@ A Japanese musical unit centered around <span style="color: #00AAAA;">Izumi Saka
 </tbody>
 </table>
 
-
 <!-- Tab Switch Script -->
 <script>
 function TabSwitch(tabName) {
@@ -215,7 +235,6 @@ document.getElementById('tab-' + tabName).style.display = 'table-row-group';
 document.getElementById('btn-' + tabName).style.color = '#00AAAA';
 }
 </script>
-
 
 </body>
 </html>

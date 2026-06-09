@@ -31,20 +31,23 @@ a:hover { color: #000000; background-color: #00AAAA; text-decoration: none; }
 .link-mobile { display: none; }
 @media (pointer: coarse) { .link-pc { display: none; }.link-mobile { display: block; } }
 
-/* Black Border Discography Archive Table */
-.black-border { position: relative; }
-.black-border::after {
-content: "";
-position: absolute;
-top: 32px;
-left: -3px;
-right: -3px;
-bottom: -2px;
+/* Chốt tọa độ dựa trên ô <td> nội dung */
+.black-border { 
+    position: relative; 
+}
 
-border-left: 1px solid #000000;
-border-right: 1px solid #000000;
-border-bottom: 1px solid #000000;
-pointer-events: none;
+.black-border::after {
+    content: "";
+    position: absolute;
+    top: -1px; /* Chốt cứng vào mép trên của thẻ td (vừa chạm đường viền xám) */
+    left: -3px; /* Ép viền ra ngoài cạnh trái 3px (chừa 2px viền xám + 1px viền đen) */
+    right: -3px; /* Ép ra cạnh phải */
+    bottom: -2px; /* Ép ra cạnh đáy (chừa 1px viền đáy xám + 1px viền đen) */
+    
+    border-left: 1px solid #000000;
+    border-right: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    pointer-events: none;
 }
 </style>
 </head>
@@ -85,12 +88,12 @@ A Japanese musical unit centered around <span style="color: #00AAAA;">Izumi Saka
 </table>
 
 <!-- Discography Archive Menu -->
-<table class="black-border" width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-top: 30px; background-color:#393939; border-width: 1px 2px; border-style: solid; border-color: #555555;">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-top: 30px; background-color:#393939; border-width: 1px 2px; border-style: solid; border-color: #555555;">
   <tr>
 <td style="padding: 8px 15px; color: #808080; border-bottom: 1px solid #555555;">Discography Archive</td>
   </tr>
   <tr>
-<td bgcolor="#000000" align="center" style="padding: 15px;">
+<td class="black-border" bgcolor="#000000" align="center" style="padding: 15px;">
   <span class="link-pc">
 <a href="f_album.html">[Album]</a><span style="user-select: none;">&nbsp;</span><a href="f_single.html">[Single]</a><span style="user-select: none;">&nbsp;</span><a href="f_dvd.html">[DVD]</a><span style="user-select: none;">&nbsp;</span><a href="f_bluray.html">[Blu-ray]</a><span style="user-select: none;">&nbsp;</span><a href="f_book.html">[Book]</a><span style="user-select: none;">&nbsp;</span><a href="f_other.html">[Other]</a>
   </span>

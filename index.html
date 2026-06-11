@@ -9,17 +9,18 @@ html, body { height: 100%; margin: 0; padding: 0; background-color: #000000; }
 /* Font Embed */
 @font-face {font-family: 'Web437_IBM_VGA_8x16';src: url('fonts/Web437_IBM_VGA_8x16.woff') format('woff'); font-display: swap;}
 @font-face {font-family: 'WebPlus_IBM_VGA_8x16';src: url('fonts/WebPlus_IBM_VGA_8x16.woff') format('woff'); font-display: swap;}
+@font-face {font-family: 'Web437_IBM_PS-55_re';src: url('fonts/Web437_IBM_PS-55_re.woff') format('woff'); font-display: swap;}
 @font-face {font-family: 'JF-Dot-Kaname12';src: url('fonts/JF-Dot-Kaname12.woff') format('woff'); font-display: swap;}
 
 /* Global Typography */
-body { background-color: #000000; font-family: "Px437 IBM VGA 8x16", "Web437_IBM_VGA_8x16", "WebPlus_IBM_VGA_8x16", "JF Dot Kanamecho 12", "JF-Dot-Kaname12", monospace; color: #aaaaaa; font-size: 16px; }
+body { background-color: #000000; font-family: "Px437 IBM PS/55 re. Regular", "Web437_IBM_PS-55_re", "Px437 IBM VGA 8x16", "Web437_IBM_VGA_8x16", "WebPlus_IBM_VGA_8x16", "JF Dot Kanamecho 12", "JF-Dot-Kaname12", monospace; color: #aaaaaa; font-size: 18px; }
 
 /* JP font */
 .jp { font-family: "JF Dot Kanamecho 12", "JF-Dot-Kaname12", monospace; font-size: 14px; }
 
 /* TD & IMG Fix */
 th { font-weight: normal; }
-td { font-size: 16px; }
+td { font-size: 18px; }
 img { border: 0; display: block; }
 
 /* Elements & Icons */
@@ -43,7 +44,6 @@ a.link-more:hover { color: #000000; background-color: #d97700; text-decoration: 
     text-decoration: none;
     box-sizing: border-box;
     margin: 5px 3px;
-    font-size: 14px;
     
     /* [TUYỆT KỸ 1]: Phân mảnh transition, cái nào cần mượt thì mới mượt (đúng chuẩn int10h) */
     transition: border-color .15s, background-color .15s ease-in-out, color .15s ease-in-out;
@@ -94,8 +94,8 @@ a.link-more:hover { color: #000000; background-color: #d97700; text-decoration: 
 <!--Info-->
 <td valign="top" style="padding: 0 20px;">
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-<tr><td style="color: #D0C0B3; line-height: 1; padding-bottom: 20px;">ZARD <span class="jp">/ ザード</span></td></tr>
-<tr><td style="line-height: 1.2;">A Japanese musical unit centered around <span style="color: #FFFFFF;">Izumi Sakai</span> <span class="jp" style="color: #FFFFFF;">/ 坂井泉水</span>. Even after Izumi Sakai's passing, her works live on as timeless standards.</td></tr>
+<tr><td style="color: #D0C0B3; padding-bottom: 20px;">ZARD <span class="jp">/ ザード</span></td></tr>
+<tr><td style="line-height: 1;">A Japanese musical unit centered around <span style="color: #FFFFFF;"><br>Izumi Sakai</span> <span class="jp" style="color: #FFFFFF;">/ 坂井泉水</span>. Even after Izumi Sakai's passing, her works live on as timeless standards.</td></tr>
 </table>
 </td>
 
@@ -103,14 +103,14 @@ a.link-more:hover { color: #000000; background-color: #d97700; text-decoration: 
 <!--font-size: 0; remove spacing-->
 <td width="105" valign="top" style="position: relative; background-color: #000000; padding: 0; font-size: 0;">
 
-  <span style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACAQMAAABFZu8gAAAABlBMVEUAqqoAAAC9JseZAAAADElEQVQI12O4wMwBAAKCANzeIkjIAAAAAElFTkSuQmCC); background-repeat: repeat; filter: saturate(0) brightness(0.42); z-index: 0; display: block;"></span>
+  <span style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; background-image: conic-gradient(transparent 90deg, #000000 90deg 180deg, transparent 180deg 270deg, #000000 270deg), radial-gradient(circle at top, #505050 0%, transparent 90%); background-size: 4px 4px, 2px 2px;"></span>
 
   <table width="105" border="0" cellpadding="0" cellspacing="0" style="position: relative; z-index: 1; background-color: #000000;">
     <tr><td style="font-size: 16px;">
       <table width="100%" cellpadding="1" cellspacing="0" bgcolor="#000000" style="border-width: 1px 2px; border-style: solid; border-color: #666666;">
         <tr><td>
           <table width="100%" cellpadding="0" cellspacing="0" style="border-width: 1px 2px; border-style: solid; border-color: #666666;">
-            <tr><td align="center" style="line-height: 1.6; padding: 6px 0 4px 0;">
+            <tr><td align="center" style="line-height: 1.3; padding: 6px 0 4px 0;">
               <a href="#" class="link-more">Official</a><br>
               <a href="#" class="link-more">Wikipedia</a>
             </td></tr>
@@ -130,7 +130,7 @@ a.link-more:hover { color: #000000; background-color: #d97700; text-decoration: 
   <tr>
     <td style="position: relative; padding: 0; font-size: 0;">
 
-<span style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACAQMAAABFZu8gAAAABlBMVEUAqqoAAAC9JseZAAAADElEQVQI12O4wMwBAAKCANzeIkjIAAAAAElFTkSuQmCC); background-repeat: repeat; filter: saturate(0) brightness(0.42); z-index: 0; display: block;"></span>
+  <span style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; background-image: conic-gradient(transparent 90deg, #000000 90deg 180deg, transparent 180deg 270deg, #000000 270deg), radial-gradient(circle at top, #505050 0%, transparent 90%); background-size: 4px 4px, 2px 2px;"></span>
 
       <table width="100%" border="0" cellpadding="0" cellspacing="0" style="position: relative; z-index: 1; background-color: transparent;">
         <tr>
@@ -147,7 +147,7 @@ a.link-more:hover { color: #000000; background-color: #d97700; text-decoration: 
                 <span style="position: absolute; display: block; top: 2px; bottom: 2px; left: 4px; right: 4px; border-width: 0 2px 1px 2px; border-style: solid; border-color: #808080; background-color: #000000; box-sizing: border-box;"></span>
                 <span style="position: absolute; display: block; top: 0; bottom: 4px; left: 8px; right: 8px; border-width: 1px 2px 1px 2px; border-style: solid; border-color: #808080; background-color: #000000; box-sizing: border-box;">
                   <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
-                    <tr><td align="center" valign="middle" style="color: #aaaaaa; font-size: 16px; letter-spacing: 1px;">
+                    <tr><td align="center" valign="middle" style="line-height: 1">
                       DISCOGRAPHY ARCHIVE
                     </td></tr>
                   </table>
@@ -161,11 +161,11 @@ a.link-more:hover { color: #000000; background-color: #d97700; text-decoration: 
                       <td align="center" style="padding: 35px 10px 25px 10px;">
 
                         <span class="link-pc">
-                          <a href="f_album.html" class="btn-disco">[ALBUM]</a>
-                          <a href="f_single.html" class="btn-disco">[SINGLE]</a>
-                          <a href="f_dvd.html" class="btn-disco">[DVD]</a>
+                          <a href="f_album.html" class="btn-disco">ALBUM</a>
+                          <a href="f_single.html" class="btn-disco">SINGLE</a>
+                          <a href="f_dvd.html" class="btn-disco">DVD</a>
                           <a href="f_bluray.html" class="btn-disco">BLU-RAY</a>
-                          <a href="f_other.html" class="btn-disco">[OTHER]</a>
+                          <a href="f_other.html" class="btn-disco">OTHER</a>
                         </span>
 
                         <span class="link-mobile">
@@ -210,7 +210,7 @@ a.link-more:hover { color: #000000; background-color: #d97700; text-decoration: 
 <!-- Top CD Tab Buttons -->
 <tr>
 <td>
-<span style="color: #d97700;">Top 3 CD<span style="user-select: none;">&nbsp;</span><span id="btn-single" style="color: #00AAAA; cursor: pointer;" onclick="TabSwitch('single')">[Single]</span><span style="user-select: none;">&nbsp;</span><span id="btn-album" style="color: #808080; cursor: pointer;" onclick="TabSwitch('album')">[Album]</span><span style="user-select: none;">&nbsp;</span>Sales</span>
+<span style="color: #d97700;">Top 3 CD<span style="user-select: none;">&nbsp;</span><span id="btn-single" style="color: #00AAAA; cursor: pointer;" onclick="TabSwitch('single')">Single</span><span style="user-select: none;">&nbsp;</span><span id="btn-album" style="color: #808080; cursor: pointer;" onclick="TabSwitch('album')">Album</span><span style="user-select: none;">&nbsp;</span>Sales</span>
 </td>
 </tr>
 
@@ -236,19 +236,19 @@ a.link-more:hover { color: #000000; background-color: #d97700; text-decoration: 
 <!-- Tab Content: Single -->
 <tbody id="tab-single" style="display: table-row-group;">
 <tr>
-<td valign="top" style="border-right: 2px solid #808080;">[01]</td>
+<td valign="top" style="border-right: 2px solid #808080;">01</td>
 <td valign="top" style="border-right: 2px solid #808080;"><span style="display: inline-block; padding-bottom: 5px;">Makenaide</span><br><span class="jp">負けないで</span></td>
 <td valign="top" style="border-right: 2px solid #808080;">1993.01.27</td>
 <td valign="top">1,64<br>Million</td>
 </tr>
 <tr>
-<td valign="top" style="border-right: 2px solid #808080;">[02]</td>
+<td valign="top" style="border-right: 2px solid #808080;">02</td>
 <td valign="top" style="border-right: 2px solid #808080;"><span style="display: inline-block; padding-bottom: 5px;">Yureru Omoi</span><br><span class="jp">揺れる想い</span></td>
 <td valign="top" style="border-right: 2px solid #808080;">1993.05.19</td>
 <td valign="top">1,39<br>Million</td>
 </tr>
 <tr>
-<td valign="top" style="border-right: 2px solid #808080;">[03]</td>
+<td valign="top" style="border-right: 2px solid #808080;">03</td>
 <td valign="top" style="border-right: 2px solid #808080;"><span style="display: inline-block; padding-bottom: 5px;">My Friend</span><br><span class="jp">マイ フレンド</span></td>
 <td valign="top" style="border-right: 2px solid #808080;">1996.01.08</td>
 <td valign="top">1,00<br>Million</td>

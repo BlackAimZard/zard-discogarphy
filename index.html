@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZARD DISCOGRAPHY</title>
+<script type="text/javascript">
+    // Mặc định: màn hình > 768px thì menu mở, nhỏ hơn thì menu đóng
+    var isMenuOpen = window.innerWidth > 768;
+
+    // Hàm thiết lập ban đầu khi load trang
+    function initFrames() {
+        var fs = document.getElementById("myFrameset");
+        if (window.innerWidth <= 768) {
+            fs.cols = "0,*"; // Điện thoại: Ẩn cột menu (0px)
+            isMenuOpen = false;
+        } else {
+            fs.cols = "150,*"; // Máy tính: Hiện cột menu (150px)
+            isMenuOpen = true;
+        }
+    }
+
+    // Hàm bật/tắt menu khi bấm nút
+    function toggleMenu() {
+        var fs = document.getElementById("myFrameset");
+        if (isMenuOpen) {
+            fs.cols = "0,*"; // Đang mở -> Ẩn đi
+            isMenuOpen = false;
+        } else {
+            fs.cols = "150,*"; // Đang ẩn -> Mở ra
+            isMenuOpen = true;
+        }
+    }
+
+    // Chạy khi load trang và khi xoay màn hình điện thoại
+    window.onload = initFrames;
+    window.onresize = initFrames;
+</script>
+</head>
+<frameset cols="150,*" id="myFrameset">
+ <frame src="menu.html" name="left">
+ <frame src="profile.html" name="right">
+</frameset>
+</html>

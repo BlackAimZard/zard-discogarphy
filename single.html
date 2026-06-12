@@ -30,35 +30,32 @@ a:visited { color: blue; }
 a:hover { color: #ff0000; text-decoration: none; }
 li { margin-left: 2em; }
 
+/* --- CSS THÊM MỚI TỪ ĐÂY --- */
+.table-scroll-wrapper {
+    overflow-x: auto; /* Tự động hiện thanh cuộn ngang khi nội dung bị tràn */
+    -webkit-overflow-scrolling: touch; /* Cuộn mượt mà trên điện thoại/tablet */
+    width: 100%;
+}
+/* --- KẾT THÚC CSS THÊM MỚI --- */
+
 /* Table Size */
-table { width: 100%; margin: 0 auto; }
+table { 
+    width: 100%; 
+    margin: 0 auto; 
+    min-width: 800px; /* Đệ thêm cái này để bảng giữ được form chữ, màn hình nhỏ hơn 800px là tự động trượt ngang */
+}
 
 /* credits : Lyrics / Music / Arrangement Fix */
 .credit { display: block; margin-left: 30px; }
 
-/* Nút Back về Profile (Chỉ hiển thị trên Mobile) */
-.mobile-back-btn { display: none; }
-@media (max-width: 768px) {
-    .mobile-back-btn { 
-        display: inline-block; 
-        margin-bottom: 20px; 
-        padding: 8px 15px; 
-        background: #D3EEFD; 
-        border: 1px solid #000; 
-        color: #000; 
-        font-weight: bold; 
-    }
-    
-    /* Bùa chú thêm vào cho Mobile không bị méo bảng */
-    .table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    table { min-width: 900px; }
-}
 </style>
 </head>
 
 <body>
 <h2>ZARD DISCOGRAPHY</h2>
 <span style="display: inline-block; font-size: 24px; padding-bottom: 10px;"><b>Single</b></span>
+
+<div class="table-scroll-wrapper">
 <table border="1" cellpadding="3">
 <tbody>
 <tr bgcolor="#D3EEFD">
@@ -427,6 +424,6 @@ table { width: 100%; margin: 0 auto; }
 
 
 
-
+</div>
 </body>
 </html>

@@ -7,86 +7,34 @@
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="robots" content="none">
 <style type="text/css">
-/* Github fonts import */
-@font-face {font-family: 'Meiryo';src: url('fonts/Meiryo.woff2') format('woff2');}
-@font-face {font-family: 'MeiryoBold';src: url('fonts/MeiryoBold.woff2') format('woff2');}
-@font-face {font-family: 'Meiryo-Italic';src: url('fonts/Meiryo-Italic.woff2') format('woff2');}
 
-/* Base Reset */
+/* GLOBAL & RESET */
+body { background-color: #FFFFFF; font-size: 16px; font-family: "Times New Roman", "Meiryo", "MS PGothic", "Hiragino Sans", "Osaka", sans-serif; }
 h2, ul, li { margin: 0; padding: 0; outline: 0; }
-ul { list-style: none; }
-
-/* TD & IMG Fix */
-td { vertical-align: middle; font-size: 14px; }
-img { border: 0; display: block; }
-
-/* Global Typography */
-body { background-color: #FFFFFF; font-size: 16px; font-family: "Times New Roman", "Meiryo", "MS PGothic", "Hiragino Sans", "Osaka", "Noto Sans JP", sans-serif; }
 h2 { font-size: 32px; color: #000; margin-bottom: 50px; }
-
-/* Elements & Icons */
+ul { list-style: none; }
+li { margin-left: 2em; }
 a { background: transparent; text-decoration: none; margin: 0; padding: 0; vertical-align: baseline; }
 a:visited { color: blue; }
 a:hover { color: #ff0000; text-decoration: none; }
-li { margin-left: 2em; }
+td { vertical-align: middle; font-size: 14px; }
+img { border: 0; display: block; }
 
-/* --- CSS THÊM MỚI TỪ ĐÂY --- */
-.table-scroll-wrapper {
-    overflow-x: auto; /* Tự động hiện thanh cuộn ngang khi nội dung bị tràn */
-    -webkit-overflow-scrolling: touch; /* Cuộn mượt mà trên điện thoại/tablet */
-    width: 100%;
-}
-/* --- KẾT THÚC CSS THÊM MỚI --- */
-
-/* Table Size */
-table { 
-    width: 100%; 
-    margin: 0 auto; 
-    min-width: 1250px; /* Đệ thêm cái này để bảng giữ được form chữ, màn hình nhỏ hơn 800px là tự động trượt ngang */
-}
-
-/* credits : Lyrics / Music / Arrangement Fix */
+/* TABLE & CONTENT LAYOUT */
+.table-scroll-wrapper { width: 100%; margin-top: 10px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.table-scroll-wrapper table { width: 100%; min-width: 1250px; }
+table { margin: 0 auto; }
 .credit { display: block; margin-left: 30px; }
 
-/* --- NÚT BẬT/TẮT MENU CHO ĐIỆN THOẠI --- */
-.inline-menu-btn {
-    display: none; /* Mặc định ẩn trên PC để giữ nguyên giao diện gốc */
-    font-size: 28px;
-    cursor: pointer;
-    margin-right: 12px;
-    color: #003399; /* Màu xanh giống màu nút cũ của đại ca, hoặc đổi thành #000 tùy ý */
-    user-select: none;
-    -webkit-user-select: none;
-}
+/* STICKY HEADER & MENU MOBILE */
+.sticky-header { position: -webkit-sticky; position: sticky; top: 0; background-color: #FFFFFF; z-index: 100; }
+.inline-menu-btn { display: none; font-size: 28px; cursor: pointer; margin-right: 12px; color: #003399; user-select: none; -webkit-user-select: none; }
 
-/* --- CỐ ĐỊNH HEADER --- */
-.sticky-header {
-    position: -webkit-sticky; /* Cho safari */
-    position: sticky;
-    top: 0;
-    background-color: #FFFFFF; /* Cần màu nền để nó che nội dung bảng khi trôi qua */
-    padding-top: 10px;
-    padding-bottom: 10px;
-    z-index: 100; /* Luôn nổi lên trên bảng */
-}
-
-/* Thêm khoảng cách cho bảng để nó không bị dính vào header */
-.table-scroll-wrapper {
-    margin-top: 10px;
-}
-
-/* Khi màn hình nhỏ hơn 1250px (Mobile/Tablet) */
+/* Mobile - Tablet */
 @media screen and (max-width: 1250px) { 
-    .inline-menu-btn { 
-        display: inline-block !important; /* Hiện dấu ☰ trên mobile */
-    }
-    
-    /* Đẩy chữ "Single" dịch vào một chút cho thẳng hàng với chữ "ZARD" ở trên khi dấu ☰ xuất hiện */
-    .sticky-header > span {
-        padding-left: 42px; 
-    }
-}
-
+ body { box-sizing: border-box; width: 100%; padding: 0 10px; }
+ .inline-menu-btn { display: inline-block !important; }
+ .sticky-header > span { padding-left: 42px; } }
 </style>
 </head>
 
@@ -95,7 +43,7 @@ table {
     <h2 style="display: flex; align-items: center; margin-bottom: 5px;">
         <span class="inline-menu-btn" onclick="parent.toggleMenu()">☰</span>
         ZARD DISCOGRAPHY
-    </h2>
+    </h2><br><br>
     <span style="display: inline-block; font-size: 24px;"><b>Single</b></span>
 </div>
 

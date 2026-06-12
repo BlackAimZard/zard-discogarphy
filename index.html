@@ -24,13 +24,12 @@
             fs.cols = "0,*"; 
             isMenuOpen = false;
         } else {
-            // Trên mobile, khi mở menu có thể cho nó rộng hơn 150px một chút (ví dụ 180px) để dễ bấm bằng ngón tay
-            fs.cols = "180,*"; 
+            fs.cols = "180,*"; // Rộng ra tí (180px) để ngón tay dễ bấm trên màn hình điện thoại
             isMenuOpen = true;
         }
     }
 
-    // --- HÀM MỚI ĐỆ THÊM: Chỉ đóng menu khi đang ở chế độ Mobile ---
+    // Hàm đóng menu dành riêng cho Mobile
     function closeMenuOnMobile() {
         if (window.innerWidth <= 1250) {
             document.getElementById("myFrameset").cols = "0,*";
@@ -43,7 +42,7 @@
 </script>
 </head>
 
-<frameset cols="150,*" id="myFrameset" frameborder="0" border="0" framespacing="0">
+<frameset cols="150,*" id="myFrameset">
  <frame src="menu.html" name="left">
  <frame src="profile.html" name="right">
 </frameset>

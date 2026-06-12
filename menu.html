@@ -15,20 +15,27 @@ body { background-color: #FFFFFF; font-size: 16px; font-family: "Times New Roman
 a { text-decoration: none; color: blue; }
 a:hover { color: red; text-decoration: underline; }
 li { margin-bottom: 8px; }
-
-
 </style>
+
+<script type="text/javascript">
+    // Báo ra ngoài index.html đóng menu lại
+    function autoClose() {
+        if (typeof parent.closeMenuOnMobile === 'function') {
+            parent.closeMenuOnMobile();
+        }
+    }
+</script>
 </head>
 <body>
 <b>INDEX</b>
 <ul>
- <li><a href="profile.html" target="right">Profile</a></li>
- <li><a href="single.html" target="right">Single</a></li>
- <li><a href="album.html" target="right">Album</a></li>
- <li><a href="dvd.html" target="right">DVD</a></li>
- <li><a href="bluray.html" target="right">Blu-ray</a></li>
- <li><a href="book.html" target="right">Book</a></li>
- <li><a href="other.html" target="right">Other</a></li>
+ <li><a href="profile.html" target="right" onclick="autoClose()">Profile</a></li>
+ <li><a href="single.html" target="right" onclick="autoClose()">Single</a></li>
+ <li><a href="album.html" target="right" onclick="autoClose()">Album</a></li>
+ <li><a href="dvd.html" target="right" onclick="autoClose()">DVD</a></li>
+ <li><a href="bluray.html" target="right" onclick="autoClose()">Blu-ray</a></li>
+ <li><a href="book.html" target="right" onclick="autoClose()">Book</a></li>
+ <li><a href="other.html" target="right" onclick="autoClose()">Other</a></li>
 </ul>
 </body>
 </html>

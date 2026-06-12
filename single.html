@@ -468,5 +468,27 @@ table {
 
 </div>
 <button class="mobile-menu-btn" onclick="parent.toggleMenu()">☰ Menu</button>
+
+<script type="text/javascript">
+    // Hàm gọi ra ngoài index.html để yêu cầu đóng menu
+    function autoClose() {
+        if (typeof parent.closeMenuOnMobile === 'function') {
+            parent.closeMenuOnMobile();
+        }
+    }
+</script>
+</head>
+<body>
+<b>INDEX</b>
+<ul>
+ <li><a href="profile.html" target="right" onclick="autoClose()">Profile</a></li>
+ <li><a href="single.html" target="right" onclick="autoClose()">Single</a></li>
+ <li><a href="album.html" target="right" onclick="autoClose()">Album</a></li>
+ <li><a href="dvd.html" target="right" onclick="autoClose()">DVD</a></li>
+ <li><a href="bluray.html" target="right" onclick="autoClose()">Blu-ray</a></li>
+ <li><a href="book.html" target="right" onclick="autoClose()">Book</a></li>
+ <li><a href="other.html" target="right" onclick="autoClose()">Other</a></li>
+ 
+</ul>
 </body>
 </html>

@@ -7,9 +7,8 @@
 
 <script type="text/javascript">
     var isMenuOpen = false;
-    var currentMode = "unknown"; // Biến lưu trạng thái để tránh đụng độ khi resize liên tục
+    var currentMode = "unknown";
 
-    // Hàm kiểm tra kích thước và điều chỉnh frameset theo page cha
     function checkLayout() {
         var parentWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
         var frameset = document.getElementById('mainFrameset');
@@ -17,90 +16,61 @@
         var rightFrame = document.getElementById('rightFrame');
 
         if (parentWidth < 800) {
-            // Khi vừa chuyển từ Desktop xuống Mobile
             if (currentMode !== "mobile") {
                 currentMode = "mobile";
                 isMenuOpen = false;
-                
-                // 1. Khóa thu phóng trước
                 leftFrame.noResize = true;
                 rightFrame.noResize = true;
-
-                // 2. Mẹo ép trình duyệt quên việc user đã kéo frameset: Gán rỗng rồi mới gán 0
                 frameset.cols = ""; 
                 frameset.cols = "0,*"; 
-                
-                injectMenuButton();
             }
+            tellChild('show'); // Nhắn file con hiện nút
         } else {
-            // Khi vừa chuyển từ Mobile lên lại Desktop
             if (currentMode !== "desktop") {
                 currentMode = "desktop";
                 isMenuOpen = false;
-                
-                // 1. Mở khóa thu phóng
                 leftFrame.noResize = false;
                 rightFrame.noResize = false;
-                
-                // 2. Reset lại kích thước chuẩn
                 frameset.cols = ""; 
                 frameset.cols = "150,*"; 
-                
-                injectMenuButton();
             }
+            tellChild('hide'); // Nhắn file con ẩn nút
         }
     }
 
-    // Hàm bật/tắt menu khi bấm nút ở Mobile
     function toggleMenu() {
         var parentWidth = window.innerWidth || document.documentElement.clientWidth;
         if (parentWidth < 800) {
-            var frameset = document.getElementById('mainFrameset');
             isMenuOpen = !isMenuOpen;
-            
-            // Xóa cache kéo thả trước khi gán mới
+            var frameset = document.getElementById('mainFrameset');
             frameset.cols = ""; 
             frameset.cols = isMenuOpen ? "150,*" : "0,*";
         }
     }
 
-    // Hàm tự động nhúng nút Menu vào frame bên phải
-    function injectMenuButton() {
-        var parentWidth = window.innerWidth || document.documentElement.clientWidth;
+    // Gửi tín hiệu xuyên màng bảo mật xuống file con
+    function tellChild(msg) {
         var rightFrame = document.getElementById('rightFrame');
-
-        // Nếu đang ở mobile, click link xong thì tự đóng menu lại cho gọn
-        if (parentWidth < 800 && isMenuOpen) {
-            isMenuOpen = false;
-            var frameset = document.getElementById('mainFrameset');
-            frameset.cols = "";
-            frameset.cols = "0,*";
-        }
-
-        try {
-            var rightDoc = rightFrame.contentDocument || rightFrame.contentWindow.document;
-            var btn = rightDoc.getElementById("mobileMenuBtn");
-
-            if (parentWidth < 800) {
-                if (!btn) {
-                    btn = rightDoc.createElement("button");
-                    btn.id = "mobileMenuBtn";
-                    btn.innerHTML = "☰ Menu";
-                    btn.style.cssText = "position: fixed; bottom: 20px; right: 20px; z-index: 9999; padding: 10px 15px; background: #003399; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.3); font-family: sans-serif;";
-                    btn.onclick = function() {
-                        window.parent.toggleMenu(); 
-                    };
-                    rightDoc.body.appendChild(btn);
-                } else {
-                    btn.style.display = "block";
-                }
-            } else {
-                if (btn) btn.style.display = "none";
-            }
-        } catch (e) {
-            console.log("Đang tải frame...");
+        if(rightFrame && rightFrame.contentWindow) {
+            rightFrame.contentWindow.postMessage(msg, '*');
         }
     }
+
+    // Lắng nghe tín hiệu từ các file con gửi lên
+    window.addEventListener('message', function(e) {
+        if (e.data === 'toggle') {
+            toggleMenu(); // Con bảo bấm nút -> Cha mở menu
+        }
+        if (e.data === 'load') {
+            var parentWidth = window.innerWidth || document.documentElement.clientWidth;
+            // Ở mobile, nếu click link load trang mới -> Cha tự xếp gọn menu lại
+            if (parentWidth < 800 && isMenuOpen) {
+                isMenuOpen = false;
+                document.getElementById('mainFrameset').cols = "0,*";
+            }
+            checkLayout(); 
+        }
+    });
 
     window.onresize = checkLayout;
 </script>
@@ -108,6 +78,6 @@
 
 <frameset cols="150,*" id="mainFrameset" onload="checkLayout()">
  <frame src="menu.html" name="left" id="leftFrame">
- <frame src="profile.html" name="right" id="rightFrame" onload="injectMenuButton()">
+ <frame src="profile.html" name="right" id="rightFrame">
 </frameset>
 </html>

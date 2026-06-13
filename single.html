@@ -23,7 +23,6 @@ img { border: 0; display: block; }
 /* Global Typography */
 body { 
     background-color: #FFFFFF; font-size: 16px; font-family: "Times New Roman", "Meiryo", "MS PGothic", "Hiragino Sans", "Osaka", "Noto Sans JP", sans-serif; 
-    height: 100vh;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch; /* Bùa trị liệt iPhone */
 }
@@ -50,14 +49,20 @@ table { width: 100%; margin: 0 auto; }
 </head>
 
 <body>
-<button id="btnMenu" onclick="parent.toggleMenuTuyetDoi()">☰ MENU</button>
+<!-- Nút Gọi Menu -->
+<button id="btnMenu" onclick="parent.toggleMenuMobile()">☰ MENU</button>
 
 <script type="text/javascript">
 function checkMenuButton() {
     var nutMenu = document.getElementById('btnMenu');
     var parentWidth = parent.window.innerWidth || parent.document.documentElement.clientWidth;
-    if (parentWidth <= 800) { nutMenu.style.display = 'block'; } 
-    else { nutMenu.style.display = 'none'; }
+    
+    // Đo kích thước thực tế của trình duyệt
+    if (parentWidth <= 800) { 
+        nutMenu.style.display = 'block'; 
+    } else { 
+        nutMenu.style.display = 'none'; 
+    }
 }
 window.onload = checkMenuButton;
 parent.window.addEventListener('resize', checkMenuButton);

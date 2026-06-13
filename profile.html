@@ -25,17 +25,19 @@ a:hover { color: #ff0000; text-decoration: underline; }
 </head>
 
 <body>
-<button id="btnMenu" onclick="parent.toggleMenuTuyetDoi()">☰ MENU</button>
+<!-- Nút Gọi Menu -->
+<button id="btnMenu" onclick="parent.toggleMenuMobile()">☰ MENU</button>
 
 <script type="text/javascript">
 function checkMenuButton() {
     var nutMenu = document.getElementById('btnMenu');
-    // Mấu chốt: Đo kích thước của Index (file cha), không đo file này
     var parentWidth = parent.window.innerWidth || parent.document.documentElement.clientWidth;
-    if (parentWidth <= 800) {
-        nutMenu.style.display = 'block'; // Mobile: Hiện nút
-    } else {
-        nutMenu.style.display = 'none'; // PC: Dấu nhẹm đi
+    
+    // Đo kích thước thực tế của trình duyệt
+    if (parentWidth <= 800) { 
+        nutMenu.style.display = 'block'; 
+    } else { 
+        nutMenu.style.display = 'none'; 
     }
 }
 window.onload = checkMenuButton;

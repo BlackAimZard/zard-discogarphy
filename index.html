@@ -5,36 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZARD DISCOGRAPHY</title>
 <script type="text/javascript">
-// 1. Hàm kiểm tra màn hình lúc vừa vào web
-function initFrameset() {
+var isMobileMode = false; // Biến theo dõi đang ở dạng PC hay Mobile
+
+function updateLayout() {
     var screenWidth = window.innerWidth || document.documentElement.clientWidth;
     var fs = document.getElementById('masterFrameset');
+    var leftFrame = document.getElementById('leftFrame');
+
     if (screenWidth <= 800) {
-        fs.cols = "0, *"; // Điện thoại: Ép menu ẩn đi (0px)
+        // KHI XUỐNG DƯỚI 800px: Chuyển sang Mobile
+        if (!isMobileMode) { // Nếu vừa từ PC chuyển sang
+            fs.cols = "0, *";           // "Bùm chéo!" Giấu menu
+            leftFrame.noResize = true;  // Khóa cứng không cho kéo
+            isMobileMode = true;
+        }
     } else {
-        fs.cols = "150, *"; // PC: Để menu 150px như cũ
+        // KHI LỚN HƠN 800px: Quay lại PC
+        if (isMobileMode) { // Nếu vừa từ Mobile mở to ra
+            fs.cols = "150, *";         // Trả lại 150px
+            leftFrame.noResize = false; // Mở khóa cho kéo thả ga
+            isMobileMode = false;
+        }
     }
 }
 
-// 2. Hàm bật/tắt menu tuyệt đối (không bị lỗi giật giật khi kéo PC)
-function toggleMenuTuyetDoi() {
+// Hàm mở menu bằng nút bấm (đã bị khóa cứng, không sợ user kéo bậy)
+function toggleMenuMobile() {
     var fs = document.getElementById('masterFrameset');
-    var leftWidth = parseInt(fs.cols.split(',')[0]);
-    if (leftWidth > 0) {
-        fs.cols = "0, *"; // Đang mở -> Chém về 0
+    if (fs.cols === "0, *") {
+        fs.cols = "150, *"; // Huynh có thể đổi số 150 thành 200 tùy ý
     } else {
-        fs.cols = "150, *"; // Đang đóng -> Mở ra đúng 150px
+        fs.cols = "0, *";
     }
 }
 
-// Lắng nghe sự kiện lúc tải trang và lúc thay đổi kích thước cửa sổ
-window.onload = initFrameset;
-window.onresize = initFrameset;
+// Hàm này để file menu.html gọi lên khi user bấm vào link
+function autoHideMenu() {
+    if (isMobileMode) {
+        document.getElementById('masterFrameset').cols = "0, *";
+    }
+}
+
+window.onload = updateLayout;
+window.onresize = updateLayout;
 </script>
 </head>
 
-<frameset id="masterFrameset" cols="150,*">
- <frame src="menu.html" name="left">
+<frameset id="masterFrameset" cols="150,*" border="5">
+ <!-- Cấp cho nó cái ID để gọi JS khóa cứng -->
+ <frame src="menu.html" name="left" id="leftFrame">
  <frame src="profile.html" name="right">
 </frameset>
 </html>

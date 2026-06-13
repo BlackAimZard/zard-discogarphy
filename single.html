@@ -2,7 +2,6 @@
 <html lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZARD DISCOGRAPHY CONTENT</title>
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="robots" content="none">
@@ -21,11 +20,7 @@ td { vertical-align: middle; font-size: 14px; }
 img { border: 0; display: block; }
 
 /* Global Typography */
-body { 
-    background-color: #FFFFFF; font-size: 16px; font-family: "Times New Roman", "Meiryo", "MS PGothic", "Hiragino Sans", "Osaka", "Noto Sans JP", sans-serif; 
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch; /* Bùa trị liệt iPhone */
-}
+body { background-color: #FFFFFF; font-size: 16px; font-family: "Times New Roman", "Meiryo", "MS PGothic", "Hiragino Sans", "Osaka", "Noto Sans JP", sans-serif; }
 h2 { font-size: 32px; color: #000; margin-bottom: 50px; }
 
 /* Elements & Icons */
@@ -39,36 +34,11 @@ table { width: 100%; margin: 0 auto; }
 
 /* credits : Lyrics / Music / Arrangement Fix */
 .credit { display: block; margin-left: 30px; }
-
-#btnMenu {
-    display: none; position: fixed; top: 10px; left: 10px; z-index: 9999;
-    background-color: #181b24; color: #FFF; border: 1px solid #888;
-    padding: 8px 12px; font-size: 14px; cursor: pointer; font-weight: bold;
-}
 </style>
 </head>
 
 <body>
-<!-- Nút Gọi Menu -->
-<button id="btnMenu" onclick="parent.toggleMenuMobile()">☰ MENU</button>
-
-<script type="text/javascript">
-function checkMenuButton() {
-    var nutMenu = document.getElementById('btnMenu');
-    var parentWidth = parent.window.innerWidth || parent.document.documentElement.clientWidth;
-    
-    // Đo kích thước thực tế của trình duyệt
-    if (parentWidth <= 800) { 
-        nutMenu.style.display = 'block'; 
-    } else { 
-        nutMenu.style.display = 'none'; 
-    }
-}
-window.onload = checkMenuButton;
-parent.window.addEventListener('resize', checkMenuButton);
-</script>
-
-<h2 style="margin-top: 50px;">ZARD DISCOGRAPHY</h2>
+<h2>ZARD DISCOGRAPHY</h2>
 <span style="display: inline-block; font-size: 24px; padding-bottom: 10px;"><b>Single</b></span>
 <table border="1" cellpadding="3">
 <tbody>

@@ -4,56 +4,93 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZARD DISCOGRAPHY</title>
+
 <script type="text/javascript">
-var isMobileMode = false; // Biến theo dõi đang ở dạng PC hay Mobile
+    var isMenuOpen = false;
 
-function updateLayout() {
-    var screenWidth = window.innerWidth || document.documentElement.clientWidth;
-    var fs = document.getElementById('masterFrameset');
-    var leftFrame = document.getElementById('leftFrame');
+    // Hàm kiểm tra kích thước và điều chỉnh frameset theo page cha
+    function checkLayout() {
+        // Tính kích thước tổng page cha (tránh lỗi tính page content)
+        var parentWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        var frameset = document.getElementById('mainFrameset');
+        var leftFrame = document.getElementById('leftFrame');
+        var rightFrame = document.getElementById('rightFrame');
 
-    if (screenWidth <= 800) {
-        // KHI XUỐNG DƯỚI 800px: Chuyển sang Mobile
-        if (!isMobileMode) { // Nếu vừa từ PC chuyển sang
-            fs.cols = "0, *";           // "Bùm chéo!" Giấu menu
-            leftFrame.noResize = true;  // Khóa cứng không cho kéo
-            isMobileMode = true;
+        if (parentWidth < 800) {
+            // Khóa thu phóng (noresize) khi ở mobile
+            leftFrame.noResize = true;
+            rightFrame.noResize = true;
+
+            if (!isMenuOpen) {
+                frameset.cols = "0,*"; // Ẩn menu
+            } else {
+                frameset.cols = "150,*"; // Hiện lại menu
+            }
+        } else {
+            // Trở về bình thường trên Desktop (> 800px)
+            frameset.cols = "150,*";
+            leftFrame.noResize = false;
+            rightFrame.noResize = false;
+            isMenuOpen = false;
         }
-    } else {
-        // KHI LỚN HƠN 800px: Quay lại PC
-        if (isMobileMode) { // Nếu vừa từ Mobile mở to ra
-            fs.cols = "150, *";         // Trả lại 150px
-            leftFrame.noResize = false; // Mở khóa cho kéo thả ga
-            isMobileMode = false;
+        injectMenuButton();
+    }
+
+    // Hàm bật/tắt menu khi bấm nút
+    function toggleMenu() {
+        var parentWidth = window.innerWidth || document.documentElement.clientWidth;
+        if (parentWidth < 800) {
+            isMenuOpen = !isMenuOpen;
+            document.getElementById('mainFrameset').cols = isMenuOpen ? "150,*" : "0,*";
         }
     }
-}
 
-// Hàm mở menu bằng nút bấm (đã bị khóa cứng, không sợ user kéo bậy)
-function toggleMenuMobile() {
-    var fs = document.getElementById('masterFrameset');
-    if (fs.cols === "0, *") {
-        fs.cols = "150, *"; // Huynh có thể đổi số 150 thành 200 tùy ý
-    } else {
-        fs.cols = "0, *";
+    // Hàm tự động nhúng nút Menu vào frame bên phải
+    function injectMenuButton() {
+        var parentWidth = window.innerWidth || document.documentElement.clientWidth;
+        var rightFrame = document.getElementById('rightFrame');
+
+        // Tính năng thêm: Khi click link trong menu -> tự động đóng menu cho gọn
+        if (parentWidth < 800 && isMenuOpen) {
+            isMenuOpen = false;
+            document.getElementById('mainFrameset').cols = "0,*";
+        }
+
+        try {
+            // Bắt DOM của trang con đang load
+            var rightDoc = rightFrame.contentDocument || rightFrame.contentWindow.document;
+            var btn = rightDoc.getElementById("mobileMenuBtn");
+
+            if (parentWidth < 800) {
+                if (!btn) {
+                    // Tạo nút menu nổi (Floating Action Button)
+                    btn = rightDoc.createElement("button");
+                    btn.id = "mobileMenuBtn";
+                    btn.innerHTML = "☰ Menu";
+                    // Style cho nút hiện ở góc phải bên dưới
+                    btn.style.cssText = "position: fixed; bottom: 20px; right: 20px; z-index: 9999; padding: 10px 15px; background: #003399; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.3); font-family: sans-serif;";
+                    btn.onclick = function() {
+                        window.parent.toggleMenu(); // Gọi hàm toggle ở page cha
+                    };
+                    rightDoc.body.appendChild(btn);
+                } else {
+                    btn.style.display = "block";
+                }
+            } else {
+                if (btn) btn.style.display = "none"; // Ẩn nút đi khi ở Desktop
+            }
+        } catch (e) {
+            console.log("Đang load frame, chờ xíu...");
+        }
     }
-}
 
-// Hàm này để file menu.html gọi lên khi user bấm vào link
-function autoHideMenu() {
-    if (isMobileMode) {
-        document.getElementById('masterFrameset').cols = "0, *";
-    }
-}
-
-window.onload = updateLayout;
-window.onresize = updateLayout;
+    // Lắng nghe sự kiện người dùng kéo thả, thu phóng cửa sổ
+    window.onresize = checkLayout;
 </script>
 </head>
 
-<frameset id="masterFrameset" cols="150,*" border="5">
- <!-- Cấp cho nó cái ID để gọi JS khóa cứng -->
+<frameset cols="150,*" id="mainFrameset" onload="checkLayout()">
  <frame src="menu.html" name="left" id="leftFrame">
- <frame src="profile.html" name="right">
+ <frame src="profile.html" name="right" id="rightFrame" onload="injectMenuButton()">
 </frameset>
 </html>

@@ -2,41 +2,21 @@
 <html lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Menu</title>
 <style type="text/css">
 /* Base Reset */
 h2, ul, li { margin: 0; padding: 0; outline: 0; }
 ul { list-style: none; margin-top: 15px; }
 
-/* Global Typography + Bùa trị liệt iPhone */
-body { 
-    background-color: #FFFFFF; 
-    font-size: 16px; 
-    font-family: "Times New Roman", "Meiryo", "MS PGothic", "Hiragino Sans", "Osaka", "Noto Sans JP", sans-serif; 
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-}
+/* Global Typography */
+body { background-color: #FFFFFF; font-size: 16px; font-family: "Times New Roman", "Meiryo", "MS PGothic", "Hiragino Sans", "Osaka", "Noto Sans JP", sans-serif; }
 
+/* Thêm style cho link ở menu */
 a { text-decoration: none; color: blue; }
 a:hover { color: red; text-decoration: underline; }
 li { margin-bottom: 8px; }
 </style>
 </head>
-<script type="text/javascript">
-window.onload = function() {
-    // Tìm tất cả các thẻ <a> trong menu
-    var links = document.getElementsByTagName('a');
-    for(var i = 0; i < links.length; i++) {
-        // Gắn sự kiện: Cứ bấm vào link là gọi hàm autoHideMenu của file cha
-        links[i].onclick = function() {
-            if(typeof parent.autoHideMenu === 'function') {
-                parent.autoHideMenu();
-            }
-        };
-    }
-};
-</script>
 <body>
 <b>INDEX</b>
 <ul>

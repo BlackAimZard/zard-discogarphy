@@ -4,78 +4,50 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZARD DISCOGRAPHY</title>
-
 <script type="text/javascript">
-    var isMenuOpen = false;
-    var currentMode = "unknown";
+ var isMenuOpen = false, currentMode = "unknown";
 
-    function checkLayout() {
-        var parentWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-        var frameset = document.getElementById('mainFrameset');
-        var leftFrame = document.getElementById('leftFrame');
-        var rightFrame = document.getElementById('rightFrame');
+ /* CHECK LAYOUT */
+ function checkLayout() {
+  var pw = window.innerWidth || document.documentElement.clientWidth;
+  var fs = document.getElementById('mainFrameset'), lf = document.getElementById('leftFrame'), rf = document.getElementById('rightFrame');
+  if (pw < 800) {
+   if (currentMode !== "mobile") { currentMode = "mobile"; isMenuOpen = false; lf.noResize = true; rf.noResize = true; fs.cols = ""; fs.cols = "0,*"; }
+   tellChild('show');
+  } else {
+   if (currentMode !== "desktop") { currentMode = "desktop"; isMenuOpen = false; lf.noResize = false; rf.noResize = false; fs.cols = ""; fs.cols = "150,*"; }
+   tellChild('hide');
+  }
+ }
 
-        if (parentWidth < 800) {
-            if (currentMode !== "mobile") {
-                currentMode = "mobile";
-                isMenuOpen = false;
-                leftFrame.noResize = true;
-                rightFrame.noResize = true;
-                frameset.cols = ""; 
-                frameset.cols = "0,*"; 
-            }
-            tellChild('show'); // Nhắn file con hiện nút
-        } else {
-            if (currentMode !== "desktop") {
-                currentMode = "desktop";
-                isMenuOpen = false;
-                leftFrame.noResize = false;
-                rightFrame.noResize = false;
-                frameset.cols = ""; 
-                frameset.cols = "150,*"; 
-            }
-            tellChild('hide'); // Nhắn file con ẩn nút
-        }
-    }
+ /* TOGGLE MENU */
+ function toggleMenu() {
+  if ((window.innerWidth || document.documentElement.clientWidth) < 800) {
+   isMenuOpen = !isMenuOpen;
+   var fs = document.getElementById('mainFrameset'); fs.cols = ""; fs.cols = isMenuOpen ? "150,*" : "0,*";
+  }
+ }
 
-    function toggleMenu() {
-        var parentWidth = window.innerWidth || document.documentElement.clientWidth;
-        if (parentWidth < 800) {
-            isMenuOpen = !isMenuOpen;
-            var frameset = document.getElementById('mainFrameset');
-            frameset.cols = ""; 
-            frameset.cols = isMenuOpen ? "150,*" : "0,*";
-        }
-    }
+ /* MESSENGER */
+ function tellChild(msg) {
+  var rf = document.getElementById('rightFrame');
+  if (rf && rf.contentWindow) rf.contentWindow.postMessage(msg, '*');
+ }
 
-    // Gửi tín hiệu xuyên màng bảo mật xuống file con
-    function tellChild(msg) {
-        var rightFrame = document.getElementById('rightFrame');
-        if(rightFrame && rightFrame.contentWindow) {
-            rightFrame.contentWindow.postMessage(msg, '*');
-        }
-    }
+ /* RECEIVE MESSAGES */
+ window.addEventListener('message', function(e) {
+  if (e.data === 'toggle') toggleMenu();
+  if (e.data === 'load') {
+   if ((window.innerWidth || document.documentElement.clientWidth) < 800 && isMenuOpen) {
+    isMenuOpen = false; document.getElementById('mainFrameset').cols = "0,*";
+   }
+   checkLayout(); 
+  }
+ });
 
-    // Lắng nghe tín hiệu từ các file con gửi lên
-    window.addEventListener('message', function(e) {
-        if (e.data === 'toggle') {
-            toggleMenu(); // Con bảo bấm nút -> Cha mở menu
-        }
-        if (e.data === 'load') {
-            var parentWidth = window.innerWidth || document.documentElement.clientWidth;
-            // Ở mobile, nếu click link load trang mới -> Cha tự xếp gọn menu lại
-            if (parentWidth < 800 && isMenuOpen) {
-                isMenuOpen = false;
-                document.getElementById('mainFrameset').cols = "0,*";
-            }
-            checkLayout(); 
-        }
-    });
-
-    window.onresize = checkLayout;
+ window.onresize = checkLayout;
 </script>
 </head>
-
 <frameset cols="150,*" id="mainFrameset" onload="checkLayout()">
  <frame src="menu.html" name="left" id="leftFrame">
  <frame src="profile.html" name="right" id="rightFrame">

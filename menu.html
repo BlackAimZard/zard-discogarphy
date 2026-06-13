@@ -23,20 +23,6 @@ a:hover { color: red; text-decoration: underline; }
 li { margin-bottom: 8px; }
 </style>
 </head>
-<script type="text/javascript">
-window.onload = function() {
-    // Tìm tất cả các thẻ <a> trong menu
-    var links = document.getElementsByTagName('a');
-    for(var i = 0; i < links.length; i++) {
-        // Gắn sự kiện: Cứ bấm vào link là gọi hàm autoHideMenu của file cha
-        links[i].onclick = function() {
-            if(typeof parent.autoHideMenu === 'function') {
-                parent.autoHideMenu();
-            }
-        };
-    }
-};
-</script>
 <body>
 <b>INDEX</b>
 <ul>

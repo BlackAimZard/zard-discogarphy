@@ -397,16 +397,12 @@ table { width: 100%; margin: 0 auto; }
 </table>
 
 
-<!-- MENU MOBILE -->
-<button id="mBtn" style="display:none; position:fixed; bottom:20px; right:20px; z-index:9999; padding:10px 15px; background:#003399; color:#fff; border:none; border-radius:5px; font-size:16px; cursor:pointer; box-shadow:0 2px 5px rgba(0,0,0,0.3);">☰ Menu</button>
+<!--MOBILE BUTTON-->
+<button id="mBtn" style="display:none; position:fixed; bottom:20px; right:20px; z-index:9999; padding:10px 15px; background:#003399; color:#fff; border:none; border-radius:5px; font-size:20px; cursor:pointer; box-shadow:0 2px 5px rgba(0,0,0,0.3);">☰</button>
 <script>
-    var btn = document.getElementById('mBtn');
-    btn.onclick = function() { window.parent.postMessage('toggle', '*'); }; // Gửi lệnh đóng/mở lên cha
-    window.addEventListener('message', function(e) {
-        if (e.data === 'show') btn.style.display = 'block';
-        if (e.data === 'hide') btn.style.display = 'none';
-    });
-    window.parent.postMessage('load', '*'); // Báo cho cha biết con đã load xong
+ var btn=document.getElementById('mBtn'); btn.onclick=function(){window.parent.postMessage('toggle','*');};
+ window.addEventListener('message',function(e){if(e.data==='show')btn.style.display='block';if(e.data==='hide')btn.style.display='none';});
+ window.parent.postMessage('load','*');
 </script>
 </body>
 </html>

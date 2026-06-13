@@ -5,58 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZARD DISCOGRAPHY</title>
 <script type="text/javascript">
-    var wasMobile = null; // Ghi nhớ trạng thái màn hình
-
-    function initFrames() {
-        var isMobile = window.innerWidth <= 1250;
-        var fs = document.getElementById("myFrameset");
-        
-        // Điều khiển tính năng kéo giãn: Mobile thì khóa (true), PC thì thả (false)
-        var frames = fs.getElementsByTagName("frame");
-        if (frames.length >= 2) {
-            frames[0].noResize = isMobile;
-            frames[1].noResize = isMobile;
-        }
-
-        // Chỉ đặt lại width khi tải trang lần đầu hoặc khi chuyển đổi giữa mốc PC và Mobile
-        // Giúp giữ nguyên kích thước đại ca đã kéo trên PC khi thay đổi nhẹ cửa sổ
-        if (wasMobile !== isMobile) {
-            if (isMobile) {
-                fs.cols = "0,*"; 
-            } else {
-                fs.cols = "150,*"; 
-            }
-            wasMobile = isMobile;
-        }
+// 1. Hàm kiểm tra màn hình lúc vừa vào web
+function initFrameset() {
+    var screenWidth = window.innerWidth || document.documentElement.clientWidth;
+    var fs = document.getElementById('masterFrameset');
+    if (screenWidth <= 800) {
+        fs.cols = "0, *"; // Điện thoại: Ép menu ẩn đi (0px)
+    } else {
+        fs.cols = "150, *"; // PC: Để menu 150px như cũ
     }
+}
 
-    function toggleMenu() {
-        var fs = document.getElementById("myFrameset");
-        // Đọc chiều rộng thực tế thay vì dùng biến true/false (chống bệnh "ngu học" khi kéo thủ công)
-        var colsArray = fs.cols.split(",");
-        var leftWidth = parseInt(colsArray[0]);
-
-        if (!isNaN(leftWidth) && leftWidth > 0) {
-            fs.cols = "0,*"; 
-        } else {
-            fs.cols = "150,*"; 
-        }
+// 2. Hàm bật/tắt menu tuyệt đối (không bị lỗi giật giật khi kéo PC)
+function toggleMenuTuyetDoi() {
+    var fs = document.getElementById('masterFrameset');
+    var leftWidth = parseInt(fs.cols.split(',')[0]);
+    if (leftWidth > 0) {
+        fs.cols = "0, *"; // Đang mở -> Chém về 0
+    } else {
+        fs.cols = "150, *"; // Đang đóng -> Mở ra đúng 150px
     }
+}
 
-    function closeMenuMobile() {
-        if (window.innerWidth <= 1250) {
-            var fs = document.getElementById("myFrameset");
-            fs.cols = "0,*";
-        }
-    }
-
-    window.onload = initFrames;
-    window.onresize = initFrames;
+// Lắng nghe sự kiện lúc tải trang và lúc thay đổi kích thước cửa sổ
+window.onload = initFrameset;
+window.onresize = initFrameset;
 </script>
 </head>
 
-<!-- Khung frameset chính (Đã bỏ bùa ẩn viền để có thể kéo thả trên PC) -->
-<frameset cols="150,*" id="myFrameset">
+<frameset id="masterFrameset" cols="150,*">
  <frame src="menu.html" name="left">
  <frame src="profile.html" name="right">
 </frameset>

@@ -2,54 +2,68 @@
 <html lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZARD DISCOGRAPHY CONTENT</title>
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="robots" content="none">
 <style type="text/css">
+/* Github fonts import */
+@font-face {font-family: 'Meiryo';src: url('fonts/Meiryo.woff2') format('woff2');}
+@font-face {font-family: 'MeiryoBold';src: url('fonts/MeiryoBold.woff2') format('woff2');}
+@font-face {font-family: 'Meiryo-Italic';src: url('fonts/Meiryo-Italic.woff2') format('woff2');}
 
-/* GLOBAL & RESET */
-body { background-color: #FFFFFF; font-size: 16px; font-family: "Times New Roman", "Meiryo", "MS PGothic", "Hiragino Sans", "Osaka", sans-serif; }
+/* Base Reset */
 h2, ul, li { margin: 0; padding: 0; outline: 0; }
-h2 { font-size: 32px; color: #000; margin-bottom: 50px; }
 ul { list-style: none; }
-li { margin-left: 2em; }
-a { background: transparent; text-decoration: none; margin: 0; padding: 0; vertical-align: baseline; }
-a:visited { color: blue; }
-a:hover { color: #ff0000; text-decoration: none; }
+
+/* TD & IMG Fix */
 td { vertical-align: middle; font-size: 14px; }
 img { border: 0; display: block; }
 
-/* TABLE & CONTENT LAYOUT */
-.table-scroll-wrapper { width: 100%; margin-top: 10px; overflow-x: auto; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; }
-.table-scroll-wrapper table { width: 100%; min-width: 1250px; }
-table { margin: 0 auto; }
+/* Global Typography */
+body { 
+    background-color: #FFFFFF; font-size: 16px; font-family: "Times New Roman", "Meiryo", "MS PGothic", "Hiragino Sans", "Osaka", "Noto Sans JP", sans-serif; 
+    height: 100vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Bùa trị liệt iPhone */
+}
+h2 { font-size: 32px; color: #000; margin-bottom: 50px; }
+
+/* Elements & Icons */
+a { background: transparent; text-decoration: none; margin: 0; padding: 0; vertical-align: baseline; }
+a:visited { color: blue; }
+a:hover { color: #ff0000; text-decoration: none; }
+li { margin-left: 2em; }
+
+/* Table Size */
+table { width: 100%; margin: 0 auto; }
+
+/* credits : Lyrics / Music / Arrangement Fix */
 .credit { display: block; margin-left: 30px; }
 
-/* STICKY HEADER & MENU MOBILE */
-.sticky-header { position: -webkit-sticky; position: sticky; top: 0; background-color: #FFFFFF; padding-top: 10px; padding-bottom: 10px; z-index: 100; }
-.inline-menu-btn { display: none; font-size: 28px; cursor: pointer; margin-right: 12px; color: #003399; user-select: none; -webkit-user-select: none; }
-
-/* Mobile - Tablet */
-@media screen and (max-width: 1250px) { 
- html, body { overflow-x: hidden; }
- body { box-sizing: border-box; width: 100%; margin: 0; padding: 0 10px; }
- .inline-menu-btn { display: inline-block !important; }
- .sticky-header > span { padding-left: 42px; } }
+#btnMenu {
+    display: none; position: fixed; top: 10px; left: 10px; z-index: 9999;
+    background-color: #181b24; color: #FFF; border: 1px solid #888;
+    padding: 8px 12px; font-size: 14px; cursor: pointer; font-weight: bold;
+}
 </style>
 </head>
 
 <body>
-<div class="sticky-header">
-    <h2 style="display: flex; align-items: center; margin-bottom: 5px;">
-        <span class="inline-menu-btn" onclick="parent.toggleMenu()">☰</span>
-        ZARD DISCOGRAPHY
-    </h2><br><br>
-    <span style="display: inline-block; font-size: 24px;"><b>Single</b></span>
-</div>
+<button id="btnMenu" onclick="parent.toggleMenuTuyetDoi()">☰ MENU</button>
 
-<div class="table-scroll-wrapper">
+<script type="text/javascript">
+function checkMenuButton() {
+    var nutMenu = document.getElementById('btnMenu');
+    var parentWidth = parent.window.innerWidth || parent.document.documentElement.clientWidth;
+    if (parentWidth <= 800) { nutMenu.style.display = 'block'; } 
+    else { nutMenu.style.display = 'none'; }
+}
+window.onload = checkMenuButton;
+parent.window.addEventListener('resize', checkMenuButton);
+</script>
 
+<h2 style="margin-top: 50px;">ZARD DISCOGRAPHY</h2>
+<span style="display: inline-block; font-size: 24px; padding-bottom: 10px;"><b>Single</b></span>
 <table border="1" cellpadding="3">
 <tbody>
 <tr bgcolor="#D3EEFD">
@@ -410,7 +424,12 @@ table { margin: 0 auto; }
 
 
 
-</div>
+
+
+
+
+
+
 
 
 

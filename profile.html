@@ -3,88 +3,80 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZARD DISCOGRAPHY CONTENT</title>
-<meta http-equiv="Content-Style-Type" content="text/css">
-<meta name="robots" content="none">
+<title>ZARD PROFILE</title>
 <style type="text/css">
+html, body { height: 100%; margin: 0; padding: 0; }
+body { 
+    background-color: #FFFFFF; 
+    font-family: "Times New Roman", "Meiryo", "MS PGothic", "Hiragino Sans", "Osaka", sans-serif; color: #000000; 
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Bùa trị liệt iPhone */
+}
+a { background: transparent; text-decoration: none; color: #003399; }
+a:hover { color: #ff0000; text-decoration: underline; }
 
-/* GLOBAL & RESET */
-body { background-color: #FFFFFF; font-size: 16px; font-family: "Times New Roman", "Meiryo", "MS PGothic", "Hiragino Sans", "Osaka", sans-serif; }
-h2, ul, li { margin: 0; padding: 0; outline: 0; }
-h2 { font-size: 32px; color: #000; margin-bottom: 50px; }
-ul { list-style: none; }
-li { margin-left: 2em; }
-a { background: transparent; text-decoration: none; margin: 0; padding: 0; vertical-align: baseline; }
-a:visited { color: blue; }
-a:hover { color: #ff0000; text-decoration: none; }
-td { vertical-align: middle; font-size: 14px; }
-img { border: 0; display: block; }
-
-/* TABLE & CONTENT LAYOUT */
-.table-scroll-wrapper { width: 100%; margin-top: 10px; overflow-x: auto; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; }
-.table-scroll-wrapper table { width: 100%; min-width: 1250px; }
-table { margin: 0 auto; }
-.credit { display: block; margin-left: 30px; }
-
-/* STICKY HEADER & MENU MOBILE */
-.sticky-header { position: -webkit-sticky; position: sticky; top: 0; background-color: #FFFFFF; padding-top: 10px; padding-bottom: 10px; z-index: 100; }
-.inline-menu-btn { display: none; font-size: 28px; cursor: pointer; margin-right: 12px; color: #003399; user-select: none; -webkit-user-select: none; }
-
-/* Mobile - Tablet */
-@media screen and (max-width: 1250px) { 
- html, body { overflow-x: hidden; }
- body { box-sizing: border-box; width: 100%; margin: 0; padding: 0 10px; }
- .inline-menu-btn { display: inline-block !important; }
- .sticky-header > span { padding-left: 42px; } }
+/* Style cho nút Menu lơ lửng */
+#btnMenu {
+    display: none; position: fixed; top: 10px; left: 10px; z-index: 9999;
+    background-color: #181b24; color: #FFF; border: 1px solid #888;
+    padding: 8px 12px; font-size: 14px; cursor: pointer; font-weight: bold;
+}
 </style>
 </head>
 
 <body>
-<div class="sticky-header">
-    <h2 style="display: flex; align-items: center; margin-bottom: 5px;">
-        <span class="inline-menu-btn" onclick="parent.toggleMenu()">☰</span>
-        ZARD DISCOGRAPHY
-    </h2><br><br>
-    <span style="display: inline-block; font-size: 24px;"><b>Profilea</b></span>
-</div>
+<button id="btnMenu" onclick="parent.toggleMenuTuyetDoi()">☰ MENU</button>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-top: 5vh; margin-bottom: 5vh;">
+<script type="text/javascript">
+function checkMenuButton() {
+    var nutMenu = document.getElementById('btnMenu');
+    // Mấu chốt: Đo kích thước của Index (file cha), không đo file này
+    var parentWidth = parent.window.innerWidth || parent.document.documentElement.clientWidth;
+    if (parentWidth <= 800) {
+        nutMenu.style.display = 'block'; // Mobile: Hiện nút
+    } else {
+        nutMenu.style.display = 'none'; // PC: Dấu nhẹm đi
+    }
+}
+window.onload = checkMenuButton;
+parent.window.addEventListener('resize', checkMenuButton);
+</script>
+
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
 <tbody>
 <tr>
  <td align="center" valign="middle">
  <table width="300" cellpadding="10" cellspacing="0" style="margin: 0 auto; border: 1px solid #888; text-align: left; background-color: #f8f9fa;">
-<tbody>
-<tr>
- <td>
- <div style="background-color: #181b24; color: #FFFFFF; font-size: 16px; font-weight: bold; padding: 10px;">ZARD<br>ザード</div>
- <img src="https://jpopsuki.eu/static/images/artists/266.jpg" alt="Izumi Sakai" width="100%" style="display: block; margin: 10px 0;">
- <div style="font-size: 14px; margin-top: 5px;">ZARD vocalist IZUMI SAKAI（坂井泉水）</div>
- <div style="font-size: 14px; margin-top: 45px;">more info:<br><a href="https://wezard.net/" target="_blank">official site</a><span style="user-select: none; -webkit-user-select: none;">・</span><a href="https://ja.wikipedia.org/wiki/ZARD" target="_blank">wikipedia</a></div>
- </td>
-</tr>
-</tbody>
-</table>
-
-<table border="1" cellpadding="5" width="100%" style="max-width: 600px; margin: 30px auto 0; font-size: 16px;">
-<tbody>
-<tr><td align="left"><b>DISCOGRAPHY</b></td></tr>
-<tr>
- <td align="left">
- <a href="album.html">[Album]</a> &nbsp;&nbsp;
- <a href="single.html">[Single]</a> &nbsp;&nbsp;
- <a href="dvd.html">[DVD]</a> &nbsp;&nbsp;
- <a href="bluray.html">[Blu-ray]</a> &nbsp;&nbsp;
- <a href="book.html">[Book]</a> &nbsp;&nbsp;
- <a href="other.html">[Other]</a>
- </td>
+ <tbody>
+ <tr>
+  <td>
+  <div style="background-color: #181b24; color: #FFFFFF; font-size: 16px; font-weight: bold; padding: 10px;">ZARD<br>ザード</div>
+  <img src="https://jpopsuki.eu/static/images/artists/266.jpg" alt="Izumi Sakai" width="100%" style="display: block; margin: 10px 0;">
+  <div style="font-size: 14px; margin-top: 5px;">ZARD vocalist IZUMI SAKAI（坂井泉水）</div>
+  <div style="font-size: 14px; margin-top: 45px;">more info:<br><a href="https://wezard.net/" target="_blank">official site</a><span style="user-select: none; -webkit-user-select: none;">・</span><a href="https://ja.wikipedia.org/wiki/ZARD" target="_blank">wikipedia</a></div>
+  </td>
  </tr>
-</tbody>
-</table>
+ </tbody>
+ </table>
 
+ <table border="1" cellpadding="5" width="100%" style="max-width: 600px; margin: 30px auto 0; font-size: 16px;">
+ <tbody>
+ <tr><td align="left"><b>DISCOGRAPHY</b></td></tr>
+ <tr>
+  <td align="left">
+  <a href="album.html">[Album]</a> &nbsp;&nbsp;
+  <a href="single.html">[Single]</a> &nbsp;&nbsp;
+  <a href="dvd.html">[DVD]</a> &nbsp;&nbsp;
+  <a href="bluray.html">[Blu-ray]</a> &nbsp;&nbsp;
+  <a href="book.html">[Book]</a> &nbsp;&nbsp;
+  <a href="other.html">[Other]</a>
+  </td>
+  </tr>
+ </tbody>
+ </table>
  </td>
 </tr>
 </tbody>
 </table>
-
 </body>
 </html>

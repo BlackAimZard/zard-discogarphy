@@ -5,19 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Menu</title>
 <style type="text/css">
-/* Base Reset */
 h2, ul, li { margin: 0; padding: 0; outline: 0; }
 ul { list-style: none; margin-top: 15px; }
-
-/* Global Typography + Bùa trị liệt iPhone */
-body { 
-    background-color: #FFFFFF; 
-    font-size: 16px; 
-    font-family: "Times New Roman", "Meiryo", "MS PGothic", "Hiragino Sans", "Osaka", "Noto Sans JP", sans-serif; 
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-}
-
+body { background-color: #FFFFFF; font-size: 16px; font-family: "Times New Roman", "Meiryo", "MS PGothic", "Hiragino Sans", "Osaka", "Noto Sans JP", sans-serif; }
 a { text-decoration: none; color: blue; }
 a:hover { color: red; text-decoration: underline; }
 li { margin-bottom: 8px; }
@@ -27,7 +17,12 @@ li { margin-bottom: 8px; }
 <b>INDEX</b>
 <ul>
  <li><a href="profile.html" target="right">Profile</a></li>
- <li><a href="single.html" target="right">Single</a></li>
+ <li><a href="single.html" target="right">Single</a>
+  <ul style="margin-top: 5px; margin-left: 15px;">
+   <li><a href="single.html#sg14" target="right">- 14th</a></li>
+   <li><a href="single.html#sg20" target="right">- 20th</a></li>
+  </ul>
+ </li>
  <li><a href="album.html" target="right">Album</a></li>
  <li><a href="dvd.html" target="right">DVD</a></li>
  <li><a href="bluray.html" target="right">Blu-ray</a></li>

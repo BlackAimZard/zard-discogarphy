@@ -13,6 +13,7 @@
 /* BASE RESET */
 h2, ul, li { margin: 0; padding: 0; outline: 0; }
 ul { list-style: none; }
+html { scroll-padding-top: 30vh; }
 
 /* TD & IMG FIX */
 td { vertical-align: middle; font-size: 14px; }
@@ -34,8 +35,8 @@ table { width: 100%; min-width: 1000px; margin: 0 auto; }
 /* CREDIT (Lyrics / Music / Arrangement) FIX */
 .credit { display: block; margin-left: 30px; }
 
-/* FLASH TARGET EFFECT */
-@keyframes flash { 0% { background-color: #e5e5e5; } 100% { background-color: transparent; } }
+/* HIGHLIGHT CONTENT EFFECT */
+@keyframes flash { 0% { background-color: #FFFF00; } 100% { background-color: transparent; } }
 tbody:target { animation: flash 1.5s ease-out; }
 </style>
 </head>
@@ -66,6 +67,7 @@ tbody:target { animation: flash 1.5s ease-out; }
 </tr>
  
 <!--Single 01-->
+<tbody id="sg01">
 <tr>
  <td rowspan="4" align="center">1st</td>
  <td align="center"><b>Good-bye My Loneliness</b></td>
@@ -78,8 +80,10 @@ tbody:target { animation: flash 1.5s ease-out; }
 <tr><td rowspan="2" align="center"><img src="https://wezard.net/wp-content/uploads/2020/01/BGDH-1010.jpg" width="60" alt="img"></td></tr>
 <tr></tr>
 <tr><td align="center">1991.02.10</td></tr>
+</tbody>
 
 <!--Single 02-->
+<tbody id="sg02">
 <tr>
  <td rowspan="4" align="center">2nd</td>
  <td align="center"><b>Fushigi ne...</b><br>不思議ね…</td>
@@ -92,8 +96,10 @@ tbody:target { animation: flash 1.5s ease-out; }
 <tr><td rowspan="2" align="center"><img src="https://wezard.net/wp-content/uploads/2020/01/BGDH-1011.jpg" width="60" alt="img"></td></tr>
 <tr></tr>
 <tr><td align="center">1991.06.25</td></tr>
+</tbody>
 
 <!--Single 03-->
+<tbody id="sg03">
 <tr>
  <td rowspan="4" align="center">3rd</td>
  <td align="center"><b>Mou Sagasanai</b><br>もう探さない</td>
@@ -108,8 +114,10 @@ tbody:target { animation: flash 1.5s ease-out; }
 <tr><td rowspan="2" align="center"><img src="https://wezard.net/wp-content/uploads/2020/01/BGDH-1012.jpg" width="116" alt="img"></td></tr>
 <tr></tr>
 <tr><td align="center">1991.11.06</td></tr>
+</tbody>
 
 <!--Single 04-->
+<tbody id="sg04">
 <tr>
  <td rowspan="4" align="center">4th</td>
  <td align="center"><b>Nemurenai Yoru wo Daite</b><br>眠れない夜を抱いて</td>
@@ -124,8 +132,10 @@ tbody:target { animation: flash 1.5s ease-out; }
 <tr><td rowspan="2" align="center"><img src="https://wezard.net/wp-content/uploads/2020/01/BGDH-1013.jpg" width="116" alt="img"></td></tr>
 <tr></tr>
 <tr><td align="center">1992.08.05</td></tr>
+</tbody>
 
 <!--Single 05-->
+<tbody id="sg05">
 <tr>
  <td rowspan="4" align="center">5th</td>
  <td align="center"><b>IN MY ARMS TONIGHT</b></td>
@@ -140,8 +150,10 @@ tbody:target { animation: flash 1.5s ease-out; }
 <tr><td rowspan="2" align="center"><img src="https://wezard.net/wp-content/uploads/2020/01/BGDH-1014.jpg" width="116" alt="img"></td></tr>
 <tr></tr>
 <tr><td align="center">1992.09.09</td></tr>
+</tbody>
 
 <!--Single 06-->
+<tbody id="sg06">
 <tr>
  <td rowspan="4" align="center">6th</td>
  <td align="center"><b>Makenaide</b><br>負けないで</td>
@@ -156,8 +168,10 @@ tbody:target { animation: flash 1.5s ease-out; }
 <tr><td rowspan="2" align="center"><img src="https://wezard.net/wp-content/uploads/2020/01/BGDH-1031.jpg" width="60" alt="img"></td></tr>
 <tr></tr>
 <tr><td align="center">1993.01.27</td></tr>
+</tbody>
 
 <!--Single 07-->
+<tbody id="sg07">
 <tr>
  <td rowspan="4" align="center">7th</td>
  <td align="center"><b>Kimi ga Inai</b><br>君がいない</td>
@@ -172,8 +186,10 @@ tbody:target { animation: flash 1.5s ease-out; }
 <tr><td rowspan="2" align="center"><img src="https://wezard.net/wp-content/uploads/2020/01/BGDH-1004.jpg" width="60" alt="img"></td></tr>
 <tr></tr>
 <tr><td align="center">1993.04.21</td></tr>
+</tbody>
 
 <!--Single 08-->
+<tbody id="sg08">
 <tr>
  <td rowspan="4" align="center">8th</td>
  <td align="center"><b>Yureru Omoi</b><br>揺れる想い</td>
@@ -188,6 +204,7 @@ tbody:target { animation: flash 1.5s ease-out; }
 <tr><td rowspan="2" align="center"><img src="https://wezard.net/wp-content/uploads/2020/01/BGDH-1005.jpg" width="60" alt="img"></td></tr>
 <tr></tr>
 <tr><td align="center">1993.05.19</td></tr>
+</tbody>
 
 <!--Promotional Single-->
 <tr>
@@ -200,6 +217,7 @@ tbody:target { animation: flash 1.5s ease-out; }
 </tr>
 
 <!--Single 09-->
+<tbody id="sg09">
 <tr>
  <td rowspan="4" align="center">9th</td>
  <td align="center"><b>Mou Sukoshi Ato Sukoshi...</b><br>もう少し あと少し…</td>
@@ -214,6 +232,7 @@ tbody:target { animation: flash 1.5s ease-out; }
 <tr><td rowspan="2" align="center"><img src="https://wezard.net/wp-content/uploads/2020/01/BGDH-1008.jpg" width="60" alt="img"></td></tr>
 <tr></tr>
 <tr><td align="center">1993.09.04</td></tr>
+</tbody>
 
 <!--Promotional Single-->
 <tr>
@@ -226,6 +245,7 @@ tbody:target { animation: flash 1.5s ease-out; }
 </tr>
 
 <!--Single 10-->
+<tbody id="sg10">
 <tr>
  <td rowspan="4" align="center">10th</td>
  <td align="center"><b>Kitto Wasurenai</b><br>きっと忘れない</td>
@@ -240,8 +260,10 @@ tbody:target { animation: flash 1.5s ease-out; }
 <tr><td rowspan="2" align="center"><img src="https://wezard.net/wp-content/uploads/2020/01/BGDH-1016.jpg" width="60" alt="img"></td></tr>
 <tr></tr>
 <tr><td align="center">1993.11.03</td></tr>
+</tbody>
 
 <!--Single 11-->
+<tbody id="sg11">
 <tr>
  <td rowspan="4" align="center">11th</td>
  <td align="center"><b>Kono Ai ni Oyogi Tsukarete mo/Boy</b><br>この愛に泳ぎ疲れても／Boy</td>
@@ -256,8 +278,10 @@ tbody:target { animation: flash 1.5s ease-out; }
 <tr><td rowspan="2" align="center"><img src="https://wezard.net/wp-content/uploads/2020/01/BGDH-1033.jpg" width="60" alt="img"></td></tr>
 <tr></tr>
 <tr><td align="center">1994.02.02</td></tr>
+</tbody>
 
 <!--Single 12-->
+<tbody id="sg12">
 <tr>
  <td rowspan="4" align="center">12th</td>
  <td align="center"><b>Konna ni Soba ni Iru no ni</b><br>こんなにそばに居るのに</td>
@@ -271,8 +295,10 @@ tbody:target { animation: flash 1.5s ease-out; }
 <tr><td rowspan="2" align="center"><img src="https://wezard.net/wp-content/uploads/2020/01/BGDH-1039.jpg" width="60" alt="img"></td></tr>
 <tr></tr>
 <tr><td align="center">1994.08.08</td></tr>
+</tbody>
 
 <!--Single 13-->
+<tbody id="sg13">
 <tr>
  <td rowspan="4" align="center">13th</td>
  <td align="center"><b>Anata wo Kanjite Itai</b><br>あなたを感じていたい</td>
@@ -286,6 +312,7 @@ tbody:target { animation: flash 1.5s ease-out; }
 <tr><td rowspan="2" align="center"><img src="https://wezard.net/wp-content/uploads/2020/01/BGDH-1041.jpg" width="60" alt="img"></td></tr>
 <tr></tr>
 <tr><td align="center">1994.12.24</td></tr>
+</tbody>
 
 <!--Single 14-->
 <tbody id="sg14">
@@ -305,6 +332,7 @@ tbody:target { animation: flash 1.5s ease-out; }
 </tbody>
 
 <!--Single 15-->
+<tbody id="sg15">
 <tr>
  <td rowspan="4" align="center">15th</td>
  <td align="center"><b>Ai ga Mienai</b><br>愛が見えない</td>
@@ -319,8 +347,10 @@ tbody:target { animation: flash 1.5s ease-out; }
 <tr><td rowspan="2" align="center"><img src="https://wezard.net/wp-content/uploads/2020/01/JBDJ-1003.jpg" width="60" alt="img"></td></tr>
 <tr></tr>
 <tr><td align="center">1995.06.05</td></tr>
+</tbody>
 
 <!--Single 16-->
+<tbody id="sg16">
 <tr>
  <td rowspan="4" align="center">16th</td>
  <td align="center"><b>Sayonara wa Ima mo Kono Mune ni Imasu</b><br>サヨナラは今もこの胸に居ます</td>
@@ -335,8 +365,10 @@ tbody:target { animation: flash 1.5s ease-out; }
 <tr><td rowspan="2" align="center"><img src="https://wezard.net/wp-content/uploads/2020/01/JBDJ-1006.jpg" width="60" alt="img"></td></tr>
 <tr></tr>
 <tr><td align="center">1995.08.28</td></tr>
+</tbody>
 
 <!--Single 17-->
+<tbody id="sg17">
 <tr>
  <td rowspan="4" align="center">17th</td>
  <td align="center"><b>My Friend</b><br>マイ フレンド</td>
@@ -351,8 +383,10 @@ tbody:target { animation: flash 1.5s ease-out; }
 <tr><td rowspan="2" align="center"><img src="https://wezard.net/wp-content/uploads/2020/01/JBDJ-1011.jpg" width="60" alt="img"></td></tr>
 <tr></tr>
 <tr><td align="center">1996.01.08</td></tr>
+</tbody>
 
 <!--Single 18-->
+<tbody id="sg18">
 <tr>
  <td rowspan="4" align="center">18th</td>
  <td align="center"><b>Kokoro wo Hiraite</b><br>心を開いて</td>
@@ -367,8 +401,10 @@ tbody:target { animation: flash 1.5s ease-out; }
 <tr><td rowspan="2" align="center"><img src="https://wezard.net/wp-content/uploads/2020/01/JBDJ-1016.jpg" width="60" alt="img"></td></tr>
 <tr></tr>
 <tr><td align="center">1996.05.06</td></tr>
+</tbody>
 
 <!--Single 19-->
+<tbody id="sg19">
 <tr>
  <td rowspan="4" align="center">19th</td>
  <td align="center"><b>Don't you see!</b></td>
@@ -383,6 +419,7 @@ tbody:target { animation: flash 1.5s ease-out; }
 <tr><td rowspan="2" align="center"><img src="https://wezard.net/wp-content/uploads/2020/01/JBDJ-1023.jpg" width="60" alt="img"></td></tr>
 <tr></tr>
 <tr><td align="center">1997.01.06</td></tr>
+</tbody>
 
 <!--Single 20-->
 <tbody id="sg20">
@@ -401,7 +438,6 @@ tbody:target { animation: flash 1.5s ease-out; }
 <tr></tr>
 <tr><td align="center">1997.02.26</td></tr>
 </tbody>
-
 
 </tbody>
 </table>

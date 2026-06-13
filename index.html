@@ -7,41 +7,60 @@
 
 <script type="text/javascript">
     var isMenuOpen = false;
+    var currentMode = "unknown"; // Biến lưu trạng thái để tránh đụng độ khi resize liên tục
 
     // Hàm kiểm tra kích thước và điều chỉnh frameset theo page cha
     function checkLayout() {
-        // Tính kích thước tổng page cha (tránh lỗi tính page content)
         var parentWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
         var frameset = document.getElementById('mainFrameset');
         var leftFrame = document.getElementById('leftFrame');
         var rightFrame = document.getElementById('rightFrame');
 
         if (parentWidth < 800) {
-            // Khóa thu phóng (noresize) khi ở mobile
-            leftFrame.noResize = true;
-            rightFrame.noResize = true;
+            // Khi vừa chuyển từ Desktop xuống Mobile
+            if (currentMode !== "mobile") {
+                currentMode = "mobile";
+                isMenuOpen = false;
+                
+                // 1. Khóa thu phóng trước
+                leftFrame.noResize = true;
+                rightFrame.noResize = true;
 
-            if (!isMenuOpen) {
-                frameset.cols = "0,*"; // Ẩn menu
-            } else {
-                frameset.cols = "150,*"; // Hiện lại menu
+                // 2. Mẹo ép trình duyệt quên việc user đã kéo frameset: Gán rỗng rồi mới gán 0
+                frameset.cols = ""; 
+                frameset.cols = "0,*"; 
+                
+                injectMenuButton();
             }
         } else {
-            // Trở về bình thường trên Desktop (> 800px)
-            frameset.cols = "150,*";
-            leftFrame.noResize = false;
-            rightFrame.noResize = false;
-            isMenuOpen = false;
+            // Khi vừa chuyển từ Mobile lên lại Desktop
+            if (currentMode !== "desktop") {
+                currentMode = "desktop";
+                isMenuOpen = false;
+                
+                // 1. Mở khóa thu phóng
+                leftFrame.noResize = false;
+                rightFrame.noResize = false;
+                
+                // 2. Reset lại kích thước chuẩn
+                frameset.cols = ""; 
+                frameset.cols = "150,*"; 
+                
+                injectMenuButton();
+            }
         }
-        injectMenuButton();
     }
 
-    // Hàm bật/tắt menu khi bấm nút
+    // Hàm bật/tắt menu khi bấm nút ở Mobile
     function toggleMenu() {
         var parentWidth = window.innerWidth || document.documentElement.clientWidth;
         if (parentWidth < 800) {
+            var frameset = document.getElementById('mainFrameset');
             isMenuOpen = !isMenuOpen;
-            document.getElementById('mainFrameset').cols = isMenuOpen ? "150,*" : "0,*";
+            
+            // Xóa cache kéo thả trước khi gán mới
+            frameset.cols = ""; 
+            frameset.cols = isMenuOpen ? "150,*" : "0,*";
         }
     }
 
@@ -50,41 +69,39 @@
         var parentWidth = window.innerWidth || document.documentElement.clientWidth;
         var rightFrame = document.getElementById('rightFrame');
 
-        // Tính năng thêm: Khi click link trong menu -> tự động đóng menu cho gọn
+        // Nếu đang ở mobile, click link xong thì tự đóng menu lại cho gọn
         if (parentWidth < 800 && isMenuOpen) {
             isMenuOpen = false;
-            document.getElementById('mainFrameset').cols = "0,*";
+            var frameset = document.getElementById('mainFrameset');
+            frameset.cols = "";
+            frameset.cols = "0,*";
         }
 
         try {
-            // Bắt DOM của trang con đang load
             var rightDoc = rightFrame.contentDocument || rightFrame.contentWindow.document;
             var btn = rightDoc.getElementById("mobileMenuBtn");
 
             if (parentWidth < 800) {
                 if (!btn) {
-                    // Tạo nút menu nổi (Floating Action Button)
                     btn = rightDoc.createElement("button");
                     btn.id = "mobileMenuBtn";
                     btn.innerHTML = "☰ Menu";
-                    // Style cho nút hiện ở góc phải bên dưới
                     btn.style.cssText = "position: fixed; bottom: 20px; right: 20px; z-index: 9999; padding: 10px 15px; background: #003399; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.3); font-family: sans-serif;";
                     btn.onclick = function() {
-                        window.parent.toggleMenu(); // Gọi hàm toggle ở page cha
+                        window.parent.toggleMenu(); 
                     };
                     rightDoc.body.appendChild(btn);
                 } else {
                     btn.style.display = "block";
                 }
             } else {
-                if (btn) btn.style.display = "none"; // Ẩn nút đi khi ở Desktop
+                if (btn) btn.style.display = "none";
             }
         } catch (e) {
-            console.log("Đang load frame, chờ xíu...");
+            console.log("Đang tải frame...");
         }
     }
 
-    // Lắng nghe sự kiện người dùng kéo thả, thu phóng cửa sổ
     window.onresize = checkLayout;
 </script>
 </head>

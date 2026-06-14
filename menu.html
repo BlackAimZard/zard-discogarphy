@@ -91,17 +91,10 @@ details summary:hover { color: red; }
 
 <!--CLOSE MENU FOR details li link-->
 <script type="text/javascript">
-document.addEventListener('click', function(e) {
-    var link = e.target.closest('a');
-
-    if (link && link.target === 'right') {
-        var hrefVal = link.getAttribute('href');
-        
-        if (hrefVal && hrefVal.indexOf('#') !== -1) {
-            window.parent.postMessage('load', '*');
-        }
-    }
-});
+document.addEventListener('click', function(e) { var link = e.target.closest('a');
+if (link && link.target === 'right') { var hrefVal = link.getAttribute('href');
+if (hrefVal && hrefVal.indexOf('#') !== -1) window.parent.postMessage('load', '*'); }});
+</script>
 </script>
 </body>
 </html>

@@ -88,5 +88,20 @@ details summary:hover { color: red; }
 <li><a href="book.html" target="right">Book</a></li>
 <li><a href="other.html" target="right">Other</a></li>
 </ul>
+
+<!--CLOSE MENU FOR details li link-->
+<script type="text/javascript">
+document.addEventListener('click', function(e) {
+    var link = e.target.closest('a');
+
+    if (link && link.target === 'right') {
+        var hrefVal = link.getAttribute('href');
+        
+        if (hrefVal && hrefVal.indexOf('#') !== -1) {
+            window.parent.postMessage('load', '*');
+        }
+    }
+});
+</script>
 </body>
 </html>
